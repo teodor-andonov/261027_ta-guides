@@ -1,0 +1,2 @@
+# Disposable generated test results; keep reusable tests in tests/
+test-artifacts/
