@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>TA / Icon Studio</title>
+<style>
+:root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#242424;background:#ebebeb;font-synthesis:none;--ink:#252525;--sub:#757575;--line:#d9d9d9;--surface:#f9f9f9;--well:#efefef;--radius:23px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-width:300px}
+button,input{font:inherit}
+button{cursor:pointer}
+button:disabled{cursor:not-allowed;opacity:.43}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #242424;outline-offset:3px}
+a{color:inherit}
+.topbar{height:68px;display:flex;justify-content:space-between;align-items:center;gap:15px;border-bottom:1px solid #dadada;padding:0 clamp(16px,3vw,52px);background:#f2f2f2}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.logo{font-weight:850;font-size:27px;letter-spacing:-.17em;padding-right:6px}
+.brandtitle{display:flex;flex-direction:column;gap:2px}.brandtitle strong{font-size:13px}.brandtitle small{font-size:10px;color:#777;letter-spacing:.1em}
+.topmeta{font-size:11px;color:#777;display:flex;align-items:center;gap:14px}.topmeta a{text-underline-offset:3px}
+.wrapper{max-width:1690px;margin:0 auto;padding:30px clamp(16px,3vw,52px) 70px}
+.header{display:flex;align-items:end;justify-content:space-between;gap:26px;margin-bottom:28px}
+.eyebrow{font-size:10px;font-weight:760;letter-spacing:.13em;color:#777;text-transform:uppercase;margin:0}
+h1{font-size:clamp(31px,3.7vw,56px);letter-spacing:-.073em;font-weight:640;line-height:1.03;margin:13px 0 14px}
+.lead{font-size:13px;color:#696969;line-height:1.65;margin:0;max-width:690px}
+.header-stamp{font-size:11px;letter-spacing:.08em;color:#888;white-space:nowrap;padding-bottom:6px}
+.workspace{display:grid;grid-template-columns:minmax(292px,370px) minmax(0,1fr) minmax(246px,300px);align-items:start;gap:16px}
+.panel{background:#f8f8f8;border:1px solid #e5e5e5;border-radius:var(--radius);min-width:0;overflow:hidden}
+.panel-inner{padding:22px}
+.phead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:21px}
+.phead h2{font-size:13px;letter-spacing:-.01em;font-weight:750;margin:0}
+.mini{font-size:10px;color:#8a8a8a;letter-spacing:.06em;font-weight:650}
+hr{border:0;border-top:1px solid var(--line);margin:22px 0}
+.group{margin:0 0 21px}.group:last-child{margin-bottom:0}
+.group-title{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:750;letter-spacing:.02em;margin-bottom:10px}
+.unit{font-size:10px;color:#777;font-weight:600;font-variant-numeric:tabular-nums}
+input[type="text"],input[type="search"]{width:100%;background:#f0f0f0;border:1px solid #dedede;border-radius:12px;min-height:41px;padding:10px 12px;color:#282828;font-size:12px;outline:none}
+input:focus{border-color:#969696}
+input[type="range"]{width:100%;accent-color:#303030;margin:7px 0 4px;cursor:pointer}
+.range-ticks{display:flex;justify-content:space-between;font-size:9px;color:#999}
+.colorline{display:grid;grid-template-columns:48px minmax(0,1fr);align-items:center;gap:10px}
+input[type="color"]{width:48px;height:42px;border:1px solid #ddd;padding:4px;background:#efefef;border-radius:12px;cursor:pointer}
+.preset-row{display:flex;gap:8px;flex-wrap:wrap}
+.preset-btn{border:1px solid #dedede;background:#efefef;color:#4c4c4c;font-size:11px;border-radius:11px;padding:10px 12px;min-height:35px}
+.preset-btn:hover,.mini-btn:hover{background:#dedede}
+.preset-btn[data-current="true"]{background:#252525;color:#fff;border-color:#252525}
+.searchrow{display:flex;gap:8px}
+.searchrow input{min-width:0;flex:1}
+.mini-btn{font-size:11px;font-weight:670;min-width:65px;min-height:41px;border:1px solid #dedede;border-radius:12px;background:#ebebeb;color:#222;padding:0 11px}
+.catalog{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;max-height:263px;overflow:auto;margin-top:12px;padding:1px}
+.iconpick{background:#f1f1f1;border:1px solid transparent;border-radius:11px;padding:10px;display:flex;align-items:center;gap:7px;text-align:left;color:#515151;min-width:0;font-size:11px;min-height:40px}
+.iconpick .symbol{font-size:15px;width:20px;text-align:center;display:grid;place-items:center}
+.iconpick .symbol svg{width:18px;height:18px}
+.iconpick span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.iconpick[data-current="true"]{border-color:#777;background:#e7e7e7;color:#242424;font-weight:750}
+.iconpick:hover{background:#e7e7e7}
+.notice{font-size:11px;line-height:1.6;color:#818181;margin:9px 0 0}
+.status{font-size:11px;color:#606060;line-height:1.6;min-height:18px}
+.status[data-kind="error"]{color:#ad4c39}
+.checkline{display:flex;align-items:center;gap:9px;font-size:11px;cursor:pointer}
+.checkline input{accent-color:#242424}
+.stage-panel{background:#e0e0e0;border:1px solid #e5e5e5;border-radius:var(--radius);padding:20px;min-width:0}
+.stage-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:0 0 17px}
+.stage-head h2{font-size:13px;font-weight:750;margin:0}
+.pip{background:#eeeeee;color:#666;font-size:10px;padding:7px 10px;border-radius:100px;letter-spacing:.06em}
+.hero-preview{background:#f0f0f0;border-radius:20px;min-height:440px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding:40px 18px;overflow:hidden}
+.hero-preview::before{content:"";position:absolute;inset:0;background-image:linear-gradient(to right,transparent calc(50% - .5px),#ddd 50%,transparent calc(50% + .5px)),linear-gradient(to bottom,transparent calc(50% - .5px),#ddd 50%,transparent calc(50% + .5px));opacity:.3;pointer-events:none}
+.iconframe{width:min(100%,315px);aspect-ratio:1;filter:drop-shadow(0 12px 21px #00000021);position:relative;z-index:1}
+.iconframe svg{display:block;width:100%;height:100%}
+.preview-name{margin-top:26px;color:#343434;font-size:19px;letter-spacing:-.04em;font-weight:660;z-index:1}
+.preview-sub{margin-top:7px;color:#999;font-size:11px;z-index:1}
+.preview-toggles{display:flex;gap:6px;flex-wrap:wrap}
+.view-btn{font-size:10px;border:1px solid #cfcfcf;padding:8px 11px;background:#ededed;color:#666;border-radius:9px}
+.view-btn[aria-pressed="true"]{background:#222;color:#fff;border-color:#222}
+.stage-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:13px}
+.preview-small{background:#f1f1f1;border-radius:16px;padding:16px;min-height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.preview-small.darkwall{background:#333;color:#f4f4f4}
+.preview-small h3{margin:0;font-size:10px;font-weight:680;letter-spacing:.04em;color:inherit}
+.tile{width:88px;height:88px;aspect-ratio:1;filter:drop-shadow(0 3px 7px #0002)}
+.tile svg{width:100%;height:100%;display:block}
+.tile.roundmask{border-radius:50%;overflow:hidden;filter:drop-shadow(0 3px 6px #0002)}
+.tile.squirclemask{border-radius:27%;overflow:hidden}
+.mask-guide{display:none;position:absolute;inset:10%;border:1.5px dashed #8c8c8c;border-radius:50%;pointer-events:none;z-index:2}
+.show-guide .mask-guide{display:block}
+.favicon-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 16px;background:#f1f1f1;border-radius:16px;margin-top:13px}
+.favi-set{display:flex;align-items:center;gap:13px}
+.favi svg{display:block;width:100%;height:100%}
+.favi{flex:none;display:block}
+.export-intro{font-size:12px;color:#707070;line-height:1.6;margin:-8px 0 18px}
+.btn{width:100%;display:flex;justify-content:space-between;align-items:center;text-align:left;gap:12px;min-height:47px;background:#eeeeee;border:1px solid #ddd;border-radius:12px;color:#333;padding:12px 13px;font-size:11px;margin-bottom:9px}
+.btn span:first-child{font-weight:680}
+.btn .suffix{color:#888;font-size:10px}
+.btn.primary{background:#292929;color:white;border-color:#292929}
+.btn.primary .suffix{color:#c3c3c3}
+.btn:hover{border-color:#777}
+.files-note{font-size:11px;line-height:1.65;color:#7d7d7d;margin:17px 0}
+.fam{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.fam-item{background:#eee;border-radius:12px;padding:10px 5px;text-align:center}
+.fam-item .miniicon{width:56px;height:56px;margin:0 auto 8px}
+.fam-item .miniicon svg{width:100%;height:100%}
+.fam-item p{font-size:10px;color:#777;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fam-item small{display:block;margin-top:4px;color:#999;font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ruler{display:flex;justify-content:space-between;gap:7px;align-items:center;font-size:10px;color:#8b8b8b;line-height:1.5}
+footer{margin-top:24px;border-top:1px solid #d6d6d6;padding-top:20px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;color:#848484;font-size:10px;line-height:1.6}
+@media(max-width:1280px){.workspace{grid-template-columns:minmax(270px,350px) minmax(0,1fr)}.export-panel{grid-column:1/-1}.export-flex{display:grid;grid-template-columns:1fr 1fr;gap:24px}.export-panel .panel-inner{padding:24px}}
+@media(max-width:840px){.workspace{grid-template-columns:1fr}.export-panel{grid-column:auto}.export-flex{display:block}.hero-preview{min-height:370px}.header-stamp{display:none}.stage-panel{order:-1}}
+@media(max-width:540px){.topmeta{display:none}.wrapper{padding:20px 12px 52px}.stage-panel{padding:12px}.panel-inner{padding:18px}.hero-preview{min-height:300px}.iconframe{width:205px}.stage-grid{gap:8px}.preview-small{padding:12px;min-height:151px}.colorline{grid-template-columns:44px minmax(0,1fr)}.group{margin-bottom:16px}h1{font-size:34px}.header{margin-bottom:17px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="logo">TA</span><span class="brandtitle"><strong>Icon Studio</strong><small>DESIGN SYSTEM / TOOLS</small></span></div>
+  <div class="topmeta"><span>MONOCHROME BY DEFAULT · ANY COLOUR BY CHOICE</span><a href="../guides/graphic-design/APP_ICONS.md">APP ICON SPEC ↗</a></div>
+</header>
+<div class="wrapper">
+  <div class="header">
+    <div><p class="eyebrow">01 / Visual workshop</p><h1>Make the icon yours.</h1><p class="lead">Experiment with real Lucide symbols, stroke, size, position, colours and rounded tiles. Compare regular and maskable launcher previews, then export production-ready files.</p></div>
+    <div class="header-stamp">TA / APP FAMILY · STUDY 01</div>
+  </div>
+  <div class="workspace">
+    <aside class="panel" aria-label="Icon controls">
+      <div class="panel-inner">
+        <div class="phead"><h2>01 / Design controls</h2><span class="mini">LIVE</span></div>
+
+        <div class="group">
+          <div class="group-title"><label for="iconInput">Lucide icon</label><span class="unit" id="iconMeta">LIBRARY-BIG</span></div>
+          <div class="searchrow"><input id="iconInput" type="search" placeholder="Type any Lucide name..." value="library-big" spellcheck="false" autocomplete="off"><button id="loadIcon" class="mini-btn">Load ↗</button></div>
+          <div class="preset-row" style="margin-top:10px">
+            <button class="preset-btn" data-app="sourcebook">Sourcebook</button>
+            <button class="preset-btn" data-app="notebook">Notebook</button>
+            <button class="preset-btn" data-app="objectbook">Objectbook</button>
+          </div>
+          <div id="iconCatalog" class="catalog" aria-label="Suggested icon choices"></div>
+          <p class="notice">Try any icon slug from <a href="https://lucide.dev/icons/" target="_blank" rel="noopener">Lucide ↗</a>. New symbols load from a pinned version of the official static library.</p>
+        </div>
+
+        <hr>
+        <div class="group">
+          <div class="group-title"><label for="stroke">Stroke width</label><output class="unit" id="strokeValue">2.00</output></div>
+          <input id="stroke" type="range" min=".5" max="4" step=".1" value="2">
+          <div class="range-ticks"><span>0.5 / thin</span><span>4 / bold</span></div>
+        </div>
+        <div class="group">
+          <div class="group-title"><label for="scale">Icon scale</label><output class="unit" id="scaleValue">60%</output></div>
+          <input id="scale" type="range" min="25" max="90" step="1" value="60">
+          <div class="range-ticks"><span>25%</span><span>90%</span></div>
+        </div>
+        <div class="group">
+          <div class="group-title"><label for="round">Background rounding</label><output class="unit" id="roundValue">25%</output></div>
+          <input id="round" type="range" min="0" max="50" step="1" value="25">
+          <div class="range-ticks"><span>square</span><span>circle</span></div>
+        </div>
+        <div class="group">
+          <div class="group-title"><label for="offsetX">Horizontal offset</label><output class="unit" id="offsetXValue">0%</output></div>
+          <input id="offsetX" type="range" min="-15" max="15" step="1" value="0">
+        </div>
+        <div class="group">
+          <div class="group-title"><label for="offsetY">Vertical offset</label><output class="unit" id="offsetYValue">0%</output></div>
+          <input id="offsetY" type="range" min="-15" max="15" step="1" value="0">
+        </div>
+        <hr>
+        <div class="group">
+          <div class="group-title"><label for="iconHex">Icon colour</label><span class="unit">STROKE</span></div>
+          <div class="colorline"><input type="color" value="#333333" id="iconColor" aria-label="Icon colour picker"><input type="text" value="#333333" id="iconHex" spellcheck="false" maxlength="7" aria-label="Icon hexadecimal colour"></div>
+        </div>
+        <div class="group">
+          <div class="group-title"><label for="bgHex">Background colour</label><span class="unit">TILE</span></div>
+          <div class="colorline"><input type="color" value="#e6e6e6" id="bgColor" aria-label="Background colour picker"><input type="text" value="#e6e6e6" id="bgHex" spellcheck="false" maxlength="7" aria-label="Background hexadecimal colour"></div>
+        </div>
+        <div class="preset-row" style="margin:0 0 16px">
+          <button class="preset-btn" data-look="light">Mono Light</button>
+          <button class="preset-btn" data-look="dark">Mono Dark</button>
+          <button class="preset-btn" data-look="grey">Soft Grey</button>
+          <button class="preset-btn" data-look="blue">Blue Study</button>
+        </div>
+        <label class="checkline"><input id="transparent" type="checkbox"> Transparent background on regular export</label>
+        <div class="ruler" style="margin-top:14px"><span>TA monochrome standard · 27 Oct 2026</span><button class="mini-btn" id="reset" title="Restore the shared TA style, keeping the selected icon" style="min-height:28px">TA Default</button></div>
+      </div>
+    </aside>
+
+    <section class="stage-panel" aria-label="Live previews">
+      <div class="stage-head"><h2>02 / Live preview</h2><div class="preview-toggles"><button id="guideButton" class="view-btn" aria-pressed="false">Safe zone</button><span class="pip">512 × 512 SOURCE</span></div></div>
+      <div class="hero-preview" id="heroPreview">
+        <div class="iconframe" id="regularPreview"><div class="mask-guide"></div></div>
+        <div class="preview-name" id="previewName">library-big</div>
+        <div class="preview-sub" id="previewStatus" role="status" aria-live="polite">Loading official Lucide icon…</div>
+      </div>
+      <div class="stage-grid">
+        <div class="preview-small"><h3>REGULAR / DESKTOP</h3><div class="tile" id="miniRegular"></div><span class="mini">FULL CORNER CONTROL</span></div>
+        <div class="preview-small darkwall"><h3>MASKABLE / ANDROID</h3><div class="tile roundmask" id="miniMaskable"></div><span class="mini" style="color:#c8c8c8">OS CROP PREVIEW</span></div>
+      </div>
+      <div class="favicon-row"><span class="mini">FAVICON / REAL SIZE</span><div class="favi-set"><div class="favi" style="width:16px;height:16px" id="fav16"></div><div class="favi" style="width:32px;height:32px" id="fav32"></div><div class="favi" style="width:64px;height:64px" id="fav64"></div></div></div>
+      <div class="status" id="status" aria-live="polite"></div>
+    </section>
+
+    <aside class="panel export-panel" aria-label="Exports and family comparison">
+      <div class="panel-inner">
+        <div class="phead"><h2>03 / Export assets</h2><span class="mini">NO BUILD STEP</span></div>
+        <div class="export-flex">
+          <div>
+            <p class="export-intro">TA default: 2.0 stroke · 60% scale · 25% corner radius · #333333 on #E6E6E6. Regular exports use your choices; Android maskable icons retain a solid square and automatically safe-sized centred glyph.</p>
+            <button id="svgExport" class="btn primary"><span>Download SVG</span><span class="suffix">SCALABLE ↗</span></button>
+            <button id="png512Export" class="btn"><span>PNG / 512px</span><span class="suffix">REGULAR ↗</span></button>
+            <button id="png192Export" class="btn"><span>PNG / 192px</span><span class="suffix">REGULAR ↗</span></button>
+            <button id="mask512Export" class="btn"><span>Maskable / 512px</span><span class="suffix">ANDROID ↗</span></button>
+            <button id="mask192Export" class="btn"><span>Maskable / 192px</span><span class="suffix">ANDROID ↗</span></button>
+            <button id="faviconExport" class="btn"><span>Favicon / 64px</span><span class="suffix">PNG ↗</span></button>
+            <button id="copySvg" class="btn"><span>Copy SVG</span><span class="suffix">CLIPBOARD ↗</span></button>
+            <button id="configExport" class="btn"><span>Save settings</span><span class="suffix">JSON ↗</span></button>
+            <button id="configLoad" class="btn"><span>Load settings</span><span class="suffix">JSON ↗</span></button>
+            <input id="configFile" type="file" accept=".json,application/json" hidden>
+            <p class="files-note">Icons fetched from Lucide v1.61.0, with exports baked locally into the file. No download is enabled until the chosen icon loads.</p>
+          </div>
+          <div>
+            <hr style="margin-top:2px">
+            <div class="phead"><h2>TA app family</h2><span class="mini">SHARED LOOK</span></div>
+            <div class="fam" id="familyGrid">
+              <div class="fam-item"><div class="miniicon" id="familySourcebook"></div><p>Sourcebook</p><small>library-big</small></div>
+              <div class="fam-item"><div class="miniicon" id="familyNotebook"></div><p>Notebook</p><small>notebook-pen</small></div>
+              <div class="fam-item"><div class="miniicon" id="familyObjectbook"></div><p>Objectbook</p><small>blocks</small></div>
+            </div>
+            <p class="notice">Every TA app gets its own Lucide symbol, sharing the default 2.0 stroke, 60% scale, 25% rounding and #333333 on #E6E6E6. App-specific colours can be introduced later.</p>
+            <hr>
+            <div class="phead"><h2>Design notes</h2><span class="mini">SPEC</span></div>
+            <p class="notice">Lucide symbols remain third-party icons, not an approved proprietary TA logo. Installed PWAs should package local PNG/SVG assets and reference them from their manifest. Check Android masking and browser icon caches before deployment.</p>
+            <p class="notice"><a href="../guides/graphic-design/APP_ICONS.md">Read the app icon specification ↗</a></p>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <footer><span>TA / ICON STUDIO · EXPERIMENTAL DESIGN TOOL</span><span>ICON SET: LUCIDE STATIC 1.61.0 · ISC / FEATHER-DERIVED MIT WHERE APPLICABLE</span><span>LOCAL SVG/PNG EXPORTS · NO APP REPOSITORIES MODIFIED</span></footer>
+</div>
+<script>
+(function(){
+"use strict";
+var CDN="https://cdn.jsdelivr.net/npm/lucide-static@1.61.0/icons/";
+var BACKUP="https://unpkg.com/lucide-static@1.61.0/icons/";
+var STORE="ta-icon-studio-state-v2";
+var apps={sourcebook:"library-big",notebook:"notebook-pen",objectbook:"blocks"};
+var icons=["library-big","notebook-pen","blocks","folder-open","database","layers-3","book-open","file-text","file-box","pencil-line","pen-tool","drafting-compass","workflow","network","shapes","app-window","layout-grid","grid-2x2","scan","search","command","component","box","archive","brain-circuit","settings-2","monitor","grid-3x3"];
+// Shared approved monochrome TA app-icon family preset, 27 October 2026.
+// Source: presets/ta-app-icon-default.json (source values mirrored here to keep the HTML standalone).
+var defaults={icon:"library-big",stroke:2,scale:60,round:25,offsetX:0,offsetY:0,iconColor:"#333333",bgColor:"#e6e6e6",transparent:false,guide:false};
+var state=Object.assign({},defaults);
+var pathCache=new Map();
+var working=false;
+var iconLoaded=false;
+var currentPaths="";
+var requestSerial=0;
+var el=function(id){return document.getElementById(id);};
+var clamp=function(v,min,max){return Math.max(min,Math.min(max,v));};
+var escapeXML=function(v){return String(v).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");};
+var validSlug=function(v){return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(v);};
+var validHex=function(v){return /^#[a-f0-9]{6}$/i.test(v);};
+var slugify=function(v){return String(v).toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");};
+var safeAttributes=new Set(["d","x","y","x1","y1","x2","y2","cx","cy","r","rx","ry","width","height","points","transform"]);
+var safeTags=new Set(["path","rect","line","circle","ellipse","polyline","polygon","g"]);
+function nodeMarkup(node){
+  var tag=node.localName;
+  if(!safeTags.has(tag))return "";
+  var attrs=[];
+  Array.from(node.attributes).forEach(function(a){
+    if(safeAttributes.has(a.name) && !/[<>]/.test(a.value))attrs.push(a.name+'="'+escapeXML(a.value)+'"');
+  });
+  var children=Array.from(node.children).map(nodeMarkup).join("");
+  return "<"+tag+(attrs.length?" "+attrs.join(" "):"")+">"+children+"</"+tag+">";
+}
+function parsePaths(svgString){
+  var doc=new DOMParser().parseFromString(svgString,"image/svg+xml");
+  var root=doc.documentElement;
+  if(!root||root.localName!=="svg"||doc.querySelector("parsererror"))throw Error("Lucide returned an invalid SVG.");
+  var nodes=Array.from(root.children).map(nodeMarkup).join("");
+  if(!nodes)throw Error("Lucide icon SVG contains no vector geometry.");
+  return nodes;
+}
+async function loadPaths(name){
+  if(!validSlug(name))throw Error("Use a valid Lucide slug such as notebook-pen.");
+  if(pathCache.has(name))return pathCache.get(name);
+  var error;
+  for(var base of [CDN,BACKUP]){
+    try{
+      var response=await fetch(base+encodeURIComponent(name)+".svg",{mode:"cors",cache:"force-cache"});
+      if(!response.ok)throw Error("HTTP "+response.status);
+      var paths=parsePaths(await response.text());
+      pathCache.set(name,paths);
+      return paths;
+    }catch(e){error=e;}
+  }
+  throw Error("Could not load “"+name+"”. Check the icon name or internet connection. "+(error&&error.message||""));
+}
+function setStatus(t,kind){
+  el("status").textContent=t||"";
+  el("status").dataset.kind=kind||"ok";
+}
+function saveState(){
+  try{localStorage.setItem(STORE,JSON.stringify(state));}catch(e){}
+}
+function loadStored(){
+  try{
+    var parsed=JSON.parse(localStorage.getItem(STORE)||"null");
+    if(parsed)applyState(parsed,false);
+  }catch(e){}
+}
+function applyState(v,update){
+  if(v && typeof v.icon==="string" && validSlug(v.icon))state.icon=v.icon;
+  ["stroke","scale","round","offsetX","offsetY"].forEach(function(k){
+    var ranges={stroke:[.5,4],scale:[25,90],round:[0,50],offsetX:[-15,15],offsetY:[-15,15]};
+    if(typeof v[k]==="number" && Number.isFinite(v[k]))state[k]=clamp(v[k],ranges[k][0],ranges[k][1]);
+  });
+  if(validHex(v.iconColor))state.iconColor=v.iconColor;
+  if(validHex(v.bgColor))state.bgColor=v.bgColor;
+  if(typeof v.transparent==="boolean")state.transparent=v.transparent;
+  if(typeof v.guide==="boolean")state.guide=v.guide;
+  syncControls();
+  if(update)selectIcon(state.icon);
+}
+function syncControls(){
+  el("iconInput").value=state.icon;
+  ["stroke","scale","round","offsetX","offsetY"].forEach(function(k){el(k).value=state[k];});
+  el("strokeValue").textContent=Number(state.stroke).toFixed(2);
+  el("scaleValue").textContent=state.scale+"%";
+  el("roundValue").textContent=state.round+"%";
+  el("offsetXValue").textContent=state.offsetX+"%";
+  el("offsetYValue").textContent=state.offsetY+"%";
+  for(var field of ["icon","bg"]){
+    var key=field+"Color",hex=field+"Hex";
+    el(key).value=state[key];
+    el(hex).value=state[key].toUpperCase();
+  }
+  el("transparent").checked=state.transparent;
+  el("guideButton").setAttribute("aria-pressed",String(state.guide));
+  el("heroPreview").classList.toggle("show-guide",state.guide);
+  el("iconMeta").textContent=state.icon.toUpperCase();
+  document.querySelectorAll("[data-app]").forEach(function(b){b.dataset.current=String(apps[b.dataset.app]===state.icon);});
+  document.querySelectorAll("[data-icon]").forEach(function(b){b.dataset.current=String(b.dataset.icon===state.icon);});
+}
+function makeSvg(paths,maskable,size){
+  var dim=size||512;
+  var radius=maskable?0:state.round/100*512;
+  var bg=maskable?'<rect width="512" height="512" fill="'+state.bgColor+'"/>':
+    state.transparent?"":'<rect width="512" height="512" rx="'+radius+'" fill="'+state.bgColor+'"/>';
+  var percent=maskable?Math.min(54,state.scale):state.scale;
+  var s=percent/100*512/24;
+  var x=(512-s*24)/2+(maskable?0:state.offsetX*512/100);
+  var y=(512-s*24)/2+(maskable?0:state.offsetY*512/100);
+  var glyph='<g transform="translate('+x.toFixed(3)+' '+y.toFixed(3)+') scale('+s.toFixed(6)+')" fill="none" stroke="'+state.iconColor+'" stroke-width="'+state.stroke+'" stroke-linecap="round" stroke-linejoin="round">'+paths+'</g>';
+  return '<svg xmlns="http://www.w3.org/2000/svg" width="'+dim+'" height="'+dim+'" viewBox="0 0 512 512">'+bg+glyph+'</svg>';
+}
+function render(){
+  if(!iconLoaded)return;
+  var regular=makeSvg(currentPaths,false,512),mask=makeSvg(currentPaths,true,512);
+  el("regularPreview").innerHTML=regular+'<div class="mask-guide" aria-hidden="true"></div>';
+  el("miniRegular").innerHTML=regular;
+  el("miniMaskable").innerHTML=mask;
+  [16,32,64].forEach(function(n){el("fav"+n).innerHTML=regular;});
+  el("previewName").textContent=state.icon;
+  el("previewStatus").textContent="LUCIDE 1.61.0 · "+state.stroke.toFixed(1)+" STROKE · "+state.scale+"% SCALE";
+  document.querySelectorAll("button[id$='Export'], #copySvg").forEach(function(b){b.disabled=false;});
+  renderFamily();
+  saveState();
+}
+async function selectIcon(name){
+  name=slugify(name);
+  if(!validSlug(name)){setStatus("Enter a valid Lucide icon name.","error");return;}
+  var serial=++requestSerial;
+  state.icon=name;iconLoaded=false;
+  syncControls();
+  setStatus("Loading "+name+"…");
+  el("previewStatus").textContent="Loading "+name+"…";
+  document.querySelectorAll("button[id$='Export'], #copySvg").forEach(function(b){b.disabled=true;});
+  try{
+    var paths=await loadPaths(name);
+    if(serial!==requestSerial)return;
+    currentPaths=paths;iconLoaded=true;
+    setStatus("Ready — change any setting or export the current design.");
+    render();
+  }catch(e){
+    if(serial!==requestSerial)return;
+    currentPaths="";el("regularPreview").innerHTML="";
+    ["miniRegular","miniMaskable","fav16","fav32","fav64"].forEach(function(id){el(id).innerHTML="";});
+    el("previewStatus").textContent="Icon unavailable";
+    setStatus(e.message,"error");saveState();
+  }
+}
+async function renderFamily(){
+  var names=[["sourcebook","familySourcebook"],["notebook","familyNotebook"],["objectbook","familyObjectbook"]];
+  for(var row of names){
+    try{
+      var paths=await loadPaths(apps[row[0]]);
+      el(row[1]).innerHTML=makeSvg(paths,false,512);
+    }catch(e){el(row[1]).textContent="—";}
+  }
+}
+function setSlider(k,v){
+  state[k]=Number(v);
+  syncControls();
+  render();
+}
+function setColor(key,value){
+  if(!validHex(value))return false;
+  state[key]=value.toLowerCase();syncControls();render();return true;
+}
+function catalog(){
+  var root=el("iconCatalog");
+  root.innerHTML="";
+  icons.forEach(function(name){
+    var btn=document.createElement("button");
+    btn.type="button";btn.className="iconpick";btn.dataset.icon=name;
+    var sym=document.createElement("span");sym.className="symbol";sym.textContent="◦";
+    var label=document.createElement("span");label.textContent=name;
+    btn.append(sym,label);root.appendChild(btn);
+    btn.addEventListener("click",function(){selectIcon(name);});
+    loadPaths(name).then(function(paths){
+      // Only official, sanitized geometry enters the preview.
+      sym.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+paths+'</svg>';
+    }).catch(function(){sym.textContent="◦";});
+  });
+}
+function filterCatalog(q){
+  var term=q.trim().toLowerCase();
+  document.querySelectorAll(".iconpick").forEach(function(b){b.hidden=!b.dataset.icon.includes(term);b.style.display=b.hidden?"none":"flex";});
+}
+function blobSave(content,filename,type){
+  var blob=content instanceof Blob?content:new Blob([content],{type:type||"image/svg+xml;charset=utf-8"});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement("a");a.href=url;a.download=filename;
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(function(){URL.revokeObjectURL(url);},2000);
+}
+function pngBlob(svg,size){
+  return new Promise(function(resolve,reject){
+    var canvas=document.createElement("canvas");
+    canvas.width=canvas.height=size;
+    var ctx=canvas.getContext("2d");
+    if(!ctx){reject(Error("Canvas is unavailable."));return;}
+    var url=URL.createObjectURL(new Blob([svg],{type:"image/svg+xml"}));
+    var img=new Image();
+    img.onload=function(){
+      try{
+        ctx.clearRect(0,0,size,size);
+        ctx.drawImage(img,0,0,size,size);
+        canvas.toBlob(function(blob){
+          URL.revokeObjectURL(url);
+          if(blob)resolve(blob);else reject(Error("Could not export PNG."));
+        },"image/png");
+      }catch(e){URL.revokeObjectURL(url);reject(e);}
+    };
+    img.onerror=function(){URL.revokeObjectURL(url);reject(Error("Could not render SVG for PNG export."));};
+    img.src=url;
+  });
+}
+async function exportAsset(kind){
+  if(!iconLoaded){setStatus("Load an icon before exporting.","error");return;}
+  var prefix="ta-"+state.icon;
+  try{
+    if(kind==="svg"){
+      blobSave(makeSvg(currentPaths,false,512),prefix+".svg");
+    }else if(kind==="copy"){
+      var svg=makeSvg(currentPaths,false,512);
+      try{await navigator.clipboard.writeText(svg);setStatus("SVG copied to clipboard.");return;}
+      catch(e){
+        var area=document.createElement("textarea");area.value=svg;document.body.appendChild(area);area.select();
+        var ok=document.execCommand("copy");area.remove();
+        if(!ok)throw Error("Clipboard access unavailable. Use Download SVG instead.");
+        setStatus("SVG copied to clipboard.");return;
+      }
+    }else{
+      var match=kind.match(/^(regular|maskable|favicon)-(\d+)$/);
+      if(!match)throw Error("Unrecognised export.");
+      var isMask=match[1]==="maskable",size=Number(match[2]);
+      var svgOut=makeSvg(currentPaths,isMask,size);
+      var blob=await pngBlob(svgOut,size);
+      blobSave(blob,prefix+"-"+(isMask?"maskable-":match[1]==="favicon"?"favicon-":"")+size+".png","image/png");
+    }
+    setStatus("Exported "+kind+" for "+state.icon+".");
+  }catch(e){setStatus(e.message,"error");}
+}
+function configExport(){
+  blobSave(JSON.stringify({app:"TA Icon Studio",version:1,lucide:"1.61.0",settings:state},null,2),"ta-"+state.icon+"-settings.json","application/json");
+  setStatus("Settings exported as JSON.");
+}
+function linkUI(){
+  ["stroke","scale","round","offsetX","offsetY"].forEach(function(k){el(k).addEventListener("input",function(e){setSlider(k,e.target.value);});});
+  ["icon","bg"].forEach(function(p){
+    var key=p+"Color";el(key).addEventListener("input",function(e){setColor(key,e.target.value);});
+    el(p+"Hex").addEventListener("input",function(e){if(!setColor(key,e.target.value))e.target.setCustomValidity("Use #RRGGBB");else e.target.setCustomValidity("");});
+    el(p+"Hex").addEventListener("blur",function(e){if(!validHex(e.target.value)){e.target.setCustomValidity("");e.target.value=state[key].toUpperCase();}});
+  });
+  el("loadIcon").addEventListener("click",function(){selectIcon(el("iconInput").value);});
+  el("iconInput").addEventListener("keydown",function(e){if(e.key==="Enter")selectIcon(e.target.value);});
+  el("iconInput").addEventListener("input",function(e){filterCatalog(e.target.value);});
+  document.querySelectorAll("[data-app]").forEach(function(b){b.addEventListener("click",function(){selectIcon(apps[b.dataset.app]);filterCatalog("");});});
+  document.querySelectorAll("[data-look]").forEach(function(b){
+    b.addEventListener("click",function(){
+      var p={light:["#242424","#eeeeee"],dark:["#f5f5f5","#242424"],grey:["#505050","#d6d6d6"],blue:["#ffffff","#405ac4"]}[b.dataset.look];
+      state.iconColor=p[0];state.bgColor=p[1];
+      state.transparent=false;syncControls();render();
+    });
+  });
+  el("transparent").addEventListener("change",function(e){state.transparent=e.target.checked;render();});
+  el("guideButton").addEventListener("click",function(){state.guide=!state.guide;syncControls();saveState();});
+  el("reset").addEventListener("click",function(){var active=state.icon;Object.assign(state,defaults,{icon:active});syncControls();selectIcon(state.icon);setStatus("TA monochrome default restored for "+active+".");});
+  [["svgExport","svg"],["png512Export","regular-512"],["png192Export","regular-192"],["mask512Export","maskable-512"],["mask192Export","maskable-192"],["faviconExport","favicon-64"],["copySvg","copy"]].forEach(function(row){
+    el(row[0]).addEventListener("click",function(){exportAsset(row[1]);});
+  });
+  el("configExport").addEventListener("click",configExport);
+  el("configLoad").addEventListener("click",function(){el("configFile").click();});
+  el("configFile").addEventListener("change",async function(e){
+    var file=e.target.files&&e.target.files[0];if(!file)return;
+    try{
+      var doc=JSON.parse(await file.text());
+      if(!doc.settings||!doc.app||doc.app!=="TA Icon Studio")throw Error("Not a TA Icon Studio settings JSON.");
+      applyState(doc.settings,true);setStatus("Settings loaded.");
+    }catch(err){setStatus("Unable to import settings: "+err.message,"error");}
+    e.target.value="";
+  });
+}
+catalog();linkUI();loadStored();syncControls();selectIcon(state.icon);
+})();
+</script>
+</body>
+</html>

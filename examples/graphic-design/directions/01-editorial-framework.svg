@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1120" viewBox="0 0 1600 1120" role="img" aria-labelledby="title desc">
+<title id="title">TA identity direction 01 / 03: EDITORIAL FRAMEWORK</title>
+<desc id="desc">Editable visual identity concept board showing a hero, equal portfolio and practice entry points, a fused glyph and a soft field specimen. Concept, not approved identity.</desc>
+<defs>
+ <clipPath id="heroClip"><rect x="64" y="132" width="1472" height="470" rx="0"/></clipPath>
+ <clipPath id="artClip"><rect x="812" y="925" width="724" height="126" rx="0"/></clipPath>
+ <filter id="blurField" x="-45%" y="-45%" width="190%" height="190%"><feGaussianBlur stdDeviation="9"/></filter>
+ <filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".58" numOctaves="2" seed="17" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".08"/></feComponentTransfer></filter>
+ <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#8A8E85" stroke-width=".8" opacity=".23"/></pattern>
+</defs>
+<rect x="0" y="0" width="1600" height="1120" rx="0" fill="#ECECE9" />
+<text x="64" y="62" font-family="'Geist Mono','Liberation Mono',monospace" font-size="19" font-weight="600" letter-spacing="1.5" fill="#242521" >TA  /  VISUAL IDENTITY STUDIES</text>
+<text x="1536" y="62" font-family="'Geist Mono','Liberation Mono',monospace" font-size="16" font-weight="500" letter-spacing="1" fill="#6C6F69" text-anchor='end'>01 / 03</text>
+<line x1="64" y1="89" x2="1536" y2="89" stroke="#BABCB5" stroke-width="1"/>
+<text x="64" y="118" font-family="'Geist Mono','Liberation Mono',monospace" font-size="14" font-weight="550" letter-spacing="1.2" fill="#6C6F69" >EDITORIAL FRAMEWORK</text>
+<text x="1536" y="118" font-family="'Geist Mono','Liberation Mono',monospace" font-size="14" font-weight="400" letter-spacing="0.2" fill="#6C6F69" text-anchor='end'>Precise / spacious / architectural</text>
+<rect x="64" y="132" width="1472" height="470" rx="0" fill="#FAFAF8" />
+<g clip-path="url(#heroClip)"><rect x="807" y="132" width="729" height="470" rx="0" fill="url(#grid)" /><rect x="851" y="165" width="585" height="404" rx="0" fill="#EEEFEA" /><g opacity="0.36" filter="url(#blurField)"><rect x="1154" y="202" width="84" height="43" rx="9.43" fill="#CACBC5" /><rect x="1031" y="243" width="207" height="43" rx="9.43" fill="#CACBC5" /><rect x="1031" y="284" width="84" height="43" rx="9.43" fill="#CACBC5" /><rect x="1154" y="284" width="166" height="43" rx="9.43" fill="#CACBC5" /><rect x="1072" y="325" width="166" height="43" rx="9.43" fill="#CACBC5" /><rect x="1277" y="325" width="43" height="43" rx="9.43" fill="#CACBC5" /><rect x="1113" y="366" width="125" height="43" rx="9.43" fill="#CACBC5" /><rect x="1277" y="366" width="43" height="43" rx="9.43" fill="#CACBC5" /><rect x="1031" y="407" width="289" height="43" rx="9.43" fill="#CACBC5" /><rect x="1031" y="448" width="84" height="43" rx="9.43" fill="#CACBC5" /><rect x="1195" y="448" width="84" height="43" rx="9.43" fill="#CACBC5" /><rect x="1195" y="489" width="84" height="43" rx="9.43" fill="#CACBC5" /></g><g transform="translate(1038 202) scale(1.13)" fill="#272823" opacity="1">
+ <rect x="16" y="26" width="216" height="46" rx="18"/>
+ <rect x="136" y="27" width="48" height="240" rx="16"/>
+ <rect x="60" y="132" width="195" height="46" rx="17"/>
+ <rect x="211" y="136" width="46" height="135" rx="17"/>
+ <rect x="60" y="216" width="197" height="49" rx="17"/>
+ <rect x="14" y="219" width="91" height="46" rx="17"/>
+ </g></g><text x="109" y="208" font-family="'Geist Mono','Liberation Mono',monospace" font-size="17" font-weight="500" letter-spacing="2.4" fill="#6C6F69" >TA  /  TEODOR ANDONOV</text>
+ <text x="109" y="307" font-family="'Geist Mono','Liberation Mono',monospace" font-size="73" font-weight="500" letter-spacing="-4.2" fill="#242521" >Architecture</text>
+ <text x="109" y="393" font-family="'Geist Mono','Liberation Mono',monospace" font-size="66" font-weight="500" letter-spacing="-4.6" fill="#242521" >and computation,</text>
+ <text x="109" y="478" font-family="'Geist Mono','Liberation Mono',monospace" font-size="74" font-weight="500" letter-spacing="-4.2" fill="#242521" >in practice.</text>
+ <line x1="109" y1="530" x2="721" y2="530" stroke="#BABCB5" stroke-width="1"/><text x="109" y="561" font-family="'Geist Mono','Liberation Mono',monospace" font-size="15" font-weight="400" letter-spacing="1.4" fill="#6C6F69" >DESIGN / ARCHITECTURE / COMPUTATION</text>
+<text x="64" y="635" font-family="'Geist Mono','Liberation Mono',monospace" font-size="14" font-weight="500" letter-spacing="1.8" fill="#6C6F69" >TWO EXPRESSIONS. ONE IDENTITY.</text>
+<rect x="64" y="656" width="724" height="245" rx="2" fill="#FDFDFC" /><line x1="64" y1="657" x2="788" y2="657" stroke="#BABCB5" stroke-width="1"/><text x="98" y="709" font-family="'Geist Mono','Liberation Mono',monospace" font-size="15" font-weight="500" letter-spacing="1" fill="#6C6F69" >01 / PORTFOLIO + RESEARCH</text><text x="98" y="771" font-family="'Geist Mono','Liberation Mono',monospace" font-size="41" font-weight="500" letter-spacing="-2" fill="#242521" >Explore work</text><text x="98" y="809" font-family="'Geist Mono','Liberation Mono',monospace" font-size="18" font-weight="400" letter-spacing="-0.7" fill="#6C6F69" >Projects, investigations, notes</text><text x="98" y="837" font-family="'Geist Mono','Liberation Mono',monospace" font-size="18" font-weight="400" letter-spacing="-0.7" fill="#6C6F69" >and computational tools.</text><line x1="98" y1="864" x2="754" y2="864" stroke="#BABCB5" stroke-width="1"/><text x="98" y="889" font-family="'Geist Mono','Liberation Mono',monospace" font-size="15" font-weight="500" letter-spacing="0.6" fill="#242521" >SELECTED WORK   →</text>
+<rect x="812" y="656" width="724" height="245" rx="2" fill="#FDFDFC" /><line x1="812" y1="657" x2="1536" y2="657" stroke="#BABCB5" stroke-width="1"/><text x="846" y="709" font-family="'Geist Mono','Liberation Mono',monospace" font-size="15" font-weight="500" letter-spacing="1" fill="#6C6F69" >02 / PRACTICE + COLLABORATION</text><text x="846" y="771" font-family="'Geist Mono','Liberation Mono',monospace" font-size="41" font-weight="500" letter-spacing="-2" fill="#242521" >Work together</text><text x="846" y="809" font-family="'Geist Mono','Liberation Mono',monospace" font-size="18" font-weight="400" letter-spacing="-0.7" fill="#6C6F69" >Architecture, computation and</text><text x="846" y="837" font-family="'Geist Mono','Liberation Mono',monospace" font-size="18" font-weight="400" letter-spacing="-0.7" fill="#6C6F69" >specialist design.</text><line x1="846" y1="864" x2="1502" y2="864" stroke="#BABCB5" stroke-width="1"/><text x="846" y="889" font-family="'Geist Mono','Liberation Mono',monospace" font-size="15" font-weight="500" letter-spacing="0.6" fill="#242521" >DISCUSS A PROJECT   →</text>
+<rect x="64" y="926" width="724" height="124" rx="0" fill="#FDFDFC" />
+<text x="89" y="953" font-family="'Geist Mono','Liberation Mono',monospace" font-size="14" font-weight="500" letter-spacing="1.1" fill="#6C6F69" >A / GLYPH</text>
+<text x="89" y="989" font-family="'Geist Mono','Liberation Mono',monospace" font-size="19" font-weight="500" letter-spacing="-0.5" fill="#242521" >Crisp modular morphology</text>
+<text x="89" y="1019" font-family="'Geist Mono','Liberation Mono',monospace" font-size="15" font-weight="400" letter-spacing="0" fill="#6C6F69" >Orthogonal / fused / rounded</text>
+<g transform="translate(570 936) scale(0.34)" fill="#242521" opacity="1">
+ <rect x="16" y="26" width="216" height="46" rx="18"/>
+ <rect x="136" y="27" width="48" height="240" rx="16"/>
+ <rect x="60" y="132" width="195" height="46" rx="17"/>
+ <rect x="211" y="136" width="46" height="135" rx="17"/>
+ <rect x="60" y="216" width="197" height="49" rx="17"/>
+ <rect x="14" y="219" width="91" height="46" rx="17"/>
+ </g>
+<rect x="812" y="926" width="724" height="124" rx="0" fill="#E0E1DB" />
+<g clip-path="url(#artClip)">
+ <g opacity="0.2" filter="url(#blurField)"><rect x="1249" y="926" width="36" height="19" rx="3.91" fill="#8A8E86" /><rect x="1198" y="943" width="87" height="19" rx="3.91" fill="#8A8E86" /><rect x="1198" y="960" width="36" height="19" rx="3.91" fill="#8A8E86" /><rect x="1249" y="960" width="70" height="19" rx="3.91" fill="#8A8E86" /><rect x="1215" y="977" width="70" height="19" rx="3.91" fill="#8A8E86" /><rect x="1300" y="977" width="19" height="19" rx="3.91" fill="#8A8E86" /><rect x="1232" y="994" width="53" height="19" rx="3.91" fill="#8A8E86" /><rect x="1300" y="994" width="19" height="19" rx="3.91" fill="#8A8E86" /><rect x="1198" y="1011" width="121" height="19" rx="3.91" fill="#8A8E86" /><rect x="1198" y="1028" width="36" height="19" rx="3.91" fill="#8A8E86" /><rect x="1266" y="1028" width="36" height="19" rx="3.91" fill="#8A8E86" /><rect x="1266" y="1045" width="36" height="19" rx="3.91" fill="#8A8E86" /></g>
+ <g opacity="0.28"><rect x="1398" y="925" width="32" height="17" rx="3.45" fill="#9CA198" /><rect x="1353" y="940" width="77" height="17" rx="3.45" fill="#9CA198" /><rect x="1353" y="955" width="32" height="17" rx="3.45" fill="#9CA198" /><rect x="1398" y="955" width="62" height="17" rx="3.45" fill="#9CA198" /><rect x="1368" y="970" width="62" height="17" rx="3.45" fill="#9CA198" /><rect x="1443" y="970" width="17" height="17" rx="3.45" fill="#9CA198" /><rect x="1383" y="985" width="47" height="17" rx="3.45" fill="#9CA198" /><rect x="1443" y="985" width="17" height="17" rx="3.45" fill="#9CA198" /><rect x="1353" y="1000" width="107" height="17" rx="3.45" fill="#9CA198" /><rect x="1353" y="1015" width="32" height="17" rx="3.45" fill="#9CA198" /><rect x="1413" y="1015" width="32" height="17" rx="3.45" fill="#9CA198" /><rect x="1413" y="1030" width="32" height="17" rx="3.45" fill="#9CA198" /></g>
+</g>
+<text x="840" y="953" font-family="'Geist Mono','Liberation Mono',monospace" font-size="14" font-weight="500" letter-spacing="1.1" fill="#6C6F69" >B / FIELD</text>
+<text x="840" y="989" font-family="'Geist Mono','Liberation Mono',monospace" font-size="19" font-weight="500" letter-spacing="-0.5" fill="#242521" >Soft modular atmosphere</text>
+<text x="840" y="1019" font-family="'Geist Mono','Liberation Mono',monospace" font-size="15" font-weight="400" letter-spacing="0" fill="#6C6F69" >Relational diffusion / grain</text>
+<line x1="64" y1="1080" x2="1536" y2="1080" stroke="#BABCB5" stroke-width="1"/>
+<text x="64" y="1103" font-family="'Geist Mono','Liberation Mono',monospace" font-size="12" font-weight="500" letter-spacing="0.55" fill="#6C6F69" >DIRECTION ${s.n.substring(0,2)} / CONCEPT ONLY — NOT APPROVED IDENTITY</text>
+<text x="1536" y="1103" font-family="'Geist Mono','Liberation Mono',monospace" font-size="12" font-weight="400" letter-spacing="0.4" fill="#6C6F69" text-anchor='end'>1600 × 1120  /  VECTOR STUDY</text>
+</svg>

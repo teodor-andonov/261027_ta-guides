@@ -1,0 +1,17 @@
+{
+  "app": "TA Icon Studio",
+  "version": 1,
+  "lucide": "1.61.0",
+  "settings": {
+    "icon": "library-big",
+    "stroke": 2,
+    "scale": 60,
+    "round": 25,
+    "offsetX": 0,
+    "offsetY": 0,
+    "iconColor": "#333333",
+    "bgColor": "#e6e6e6",
+    "transparent": false,
+    "guide": false
+  }
+}
