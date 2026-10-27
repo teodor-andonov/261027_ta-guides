@@ -16,7 +16,7 @@ The editor loads authentic Lucide geometry from a **pinned `lucide-static@1.61.0
 
 ## Selected shared launcher preset — approved 27 October 2026
 
-**Source of truth:** the owner's uploaded [TA Icon Studio configuration](presets/ta-app-icon-default.json). These are **approved current defaults** for all TA app launcher icons, while each app's Lucide glyph remains distinct.
+**Source of truth:** the owner's uploaded [TA Icon Studio configuration](../../tools/presets/ta-app-icon-default.json). These are **approved current defaults** for all TA app launcher icons, while each app's Lucide glyph remains distinct.
 
 | Property | Shared value |
 | --- | --- |

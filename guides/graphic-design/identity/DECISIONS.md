@@ -85,7 +85,7 @@ On 27 October the user specifically asked to formalize using **Lucide as the ins
 
 ## Approved current app icon styling — 27 October 2026
 
-The owner supplied a **TA Icon Studio settings JSON** and explicitly selected its parameters as the **shared monochrome family preset for now**. Exact values: Lucide `2.0` stroke; regular icon `60%` scale; tile `25%` corner rounding; offsets `0%/0%`; icon `#333333`; tile `#E6E6E6`; transparency `false`; guide `false`. Source/preset: [presets/ta-app-icon-default.json](presets/ta-app-icon-default.json).
+The owner supplied a **TA Icon Studio settings JSON** and explicitly selected its parameters as the **shared monochrome family preset for now**. Exact values: Lucide `2.0` stroke; regular icon `60%` scale; tile `25%` corner rounding; offsets `0%/0%`; icon `#333333`; tile `#E6E6E6`; transparency `false`; guide `false`. Source/preset: [presets/ta-app-icon-default.json](../../../tools/presets/ta-app-icon-default.json).
 
 These values are **approved current defaults**, superseding the earlier OPEN launcher palette and trial defaults of 67% scale / 24% rounding / #242424 on #EEEEEE. Each application still has its own Lucide glyph. Different app-specific icon/background colours may be explored later, but **are not selected** now.
 
