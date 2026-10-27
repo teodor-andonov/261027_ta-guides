@@ -42,3 +42,9 @@ Merge the former Repo Guidance and Graphic Design System into an informal, expan
 - Refine individual guides and visual examples in later cycles without losing the original provenance.
 - Keep source Graphic Design System repo available as historical archive.
 - Keep TA Guides file-first; website generation and publishing were explicitly rolled back on 27 Oct 2026.
+
+## 2026-10-27 — Flat studies
+
+- [x] Flatten `studies/` into dated study folders without category nesting.
+- [x] Preserve all original SVG/HTML study assets and move relative references.
+- [x] Keep the App Icon Studio timestamped tool folder unchanged.

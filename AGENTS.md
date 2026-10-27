@@ -6,7 +6,7 @@ Before substantial work, read `README.md`, `logs/status.md`, `logs/roadmap.md` a
 
 - Keep reusable guidance separate from TA-specific identity history and project-specific decisions.
 - Preserve verified decisions, uncertainties, trial values and historical alternatives. Do not promote experiments into approved standards.
-- Keep `guides/`, `templates/`, `tools/`, and `studies/` distinct, but avoid empty/speculative categories.
+- Keep `guides/`, `templates/`, `tools/`, and `studies/` distinct, but avoid empty/speculative categories. Store each study directly under `studies/YYMMDD-HHmm_short-title/`, with no thematic nesting.
 - Recheck links, image/vector assets, JSON, example HTML and template portability after reorganising.
 - Keep the project-memory template self-contained. Do **not** copy this maintenance-specific AGENTS file into consuming projects.
 - Document meaningful work and verified results in `logs/`; don't claim tests, deployments or screenshots that did not occur.

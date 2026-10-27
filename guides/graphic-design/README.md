@@ -22,7 +22,7 @@ Personal design principles, identity explorations, practical app icon guidance a
 
 - [App Icon Studio](../../tools/261027-1116_app-icon-studio/app-icon-studio.html)
 - [Launcher icon preset](../../tools/261027-1116_app-icon-studio/ta-app-icon-default.json)
-- [Soft Precision v2](../../studies/graphic-design/directions/soft-precision-v2.html)
-- [Compare early designs](../../studies/graphic-design/directions/compare.html)
+- [Soft Precision v2](../../studies/261013-0849_soft-precision-v2/soft-precision-v2.html)
+- [Compare early designs](../../studies/261012-2105_visual-identity-directions/compare.html)
 
 **Interpretation:** `CORE` is established; `PREFERRED` current advice; `TRIAL` experimental; `OPEN` not decided; `HISTORICAL` retained for context.

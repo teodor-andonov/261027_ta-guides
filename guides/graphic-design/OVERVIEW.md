@@ -81,7 +81,7 @@ The **personal umbrella + equal Portfolio/Studio** structure and **03 / Soft Pre
 
 ## Current working board — Soft Precision v2
 
-**[View/download Soft Precision v2 HTML](../../studies/graphic-design/directions/soft-precision-v2.html)** — our new single-file, responsive, interactive design-board prototype. It supersedes the SVG sketches as the **current iteration**, not as a final identity approval.
+**[View/download Soft Precision v2 HTML](../../studies/261013-0849_soft-precision-v2/soft-precision-v2.html)** — our new single-file, responsive, interactive design-board prototype. It supersedes the SVG sketches as the **current iteration**, not as a final identity approval.
 
 The board demonstrates four recurring type roles, a shared spacing vocabulary, calmer nested cards and surfaces, service icons, the TA umbrella structure, report/notes/app specimens, and **light/dark + density controls**. Online it upgrades local fallback line icons to **Lucide 1.55.0**. Offline it remains usable without a build step; font is an explicit system fallback unless Geist Mono is installed.
 
@@ -91,11 +91,11 @@ For actual viewing, **download the raw HTML file and open it in a browser**; Git
 
 These are **large 1800 × 2975 SVG concept sheets**, not single homepage mockups.
 
-For a side-by-side browser review after cloning/downloading the repo, open **[directions/compare.html](../../studies/graphic-design/directions/compare.html)** locally. The GitHub web UI may display its source rather than run the HTML; the SVG links below open directly. Each includes a personal TA website, Portfolio, provisional Method Studio, a report, presentation, app/notes example, grayscale palette, type and icons.
+For a side-by-side browser review after cloning/downloading the repo, open **[directions/compare.html](../../studies/261012-2105_visual-identity-directions/compare.html)** locally. The GitHub web UI may display its source rather than run the HTML; the SVG links below open directly. Each includes a personal TA website, Portfolio, provisional Method Studio, a report, presentation, app/notes example, grayscale palette, type and icons.
 
-- **[01 / Editorial Framework — full board](../../studies/graphic-design/directions/01-editorial-framework-board.svg)** — spare and architectural.
-- **[02 / Modular Signal — full board](../../studies/graphic-design/directions/02-modular-signal-board.svg)** — dark and computational.
-- **[03 / Soft Precision — original vector board](../../studies/graphic-design/directions/03-mineral-field-board.svg)** — selected direction's *earlier* study; see HTML v2 above for the current typography/rhythm refinement.
+- **[01 / Editorial Framework — full board](../../studies/261012-2105_visual-identity-directions/01-editorial-framework-board.svg)** — spare and architectural.
+- **[02 / Modular Signal — full board](../../studies/261012-2105_visual-identity-directions/02-modular-signal-board.svg)** — dark and computational.
+- **[03 / Soft Precision — original vector board](../../studies/261012-2105_visual-identity-directions/03-mineral-field-board.svg)** — selected direction's *earlier* study; see HTML v2 above for the current typography/rhythm refinement.
 
 The earlier small SVG sketches remain as design-history references. Read [DIRECTIONS.md](identity/DIRECTIONS.md) for comparison and decision criteria. These boards show **proposals**, not approved final marks, commercial claims or published webpages.
 

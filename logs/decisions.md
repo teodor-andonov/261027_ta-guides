@@ -34,3 +34,12 @@ The owner decided that the short-lived GitHub Pages website introduced in [PR #2
 - Each reusable tool should have its own folder named `YYMMDD-HHmm_short-name/`, using the tool's **original creation time** (not today's refactoring time).
 - Consolidated `app-icon-studio.html` and its approved JSON preset into `tools/261027-1116_app-icon-studio/` (original Icon Studio creation: 27 October 2026 at approximately 11:16 UTC).
 - This is a filesystem change only: no new website, no publishing, no change to the pre-merge Git tag, and no changes to the underlying design decisions.
+
+## 2026-10-27 — Flat dated studies
+
+The owner clarified that studies are WIP explorations and should form a **simple flat list** of directly nested `studies/YYMMDD-HHmm_short-title/` folders, not folders organised by discipline. Keep multiple source files together when they form one coherent study.
+
+- `studies/261012-2105_visual-identity-directions/` — SVG direction explorations, application boards and comparison viewer; first original asset 12 Oct 2026 at 21:05 UTC.
+- `studies/261013-0849_soft-precision-v2/` — responsive HTML study, originally created 13 Oct 2026 at 08:49 UTC.
+
+The matching App Icon Studio tool folder remains untouched. All prior project decisions and original Git history are preserved.

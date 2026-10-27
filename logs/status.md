@@ -38,4 +38,8 @@ Keep the collection file-first. Add or edit guides only as needed; do not reinst
 
 ## Folder organisation update — 2026-10-27
 
-The WIP design boards live in `studies/graphic-design/directions/`. App Icon Studio and its companion preset live together in `tools/261027-1116_app-icon-studio/`. All cross-references were updated. See `logs/decisions.md` for rationale.
+The WIP design boards live in `studies/261012-2105_visual-identity-directions/`. App Icon Studio and its companion preset live together in `tools/261027-1116_app-icon-studio/`. All cross-references were updated. See `logs/decisions.md` for rationale.
+
+## Flat studies — 2026-10-27
+
+The studies now live in two direct, dated folders: `studies/261012-2105_visual-identity-directions/` and `studies/261013-0849_soft-precision-v2/`. The date/time prefixes use each study's initial Git-recorded creation time (UTC). No thematic nesting is used.
