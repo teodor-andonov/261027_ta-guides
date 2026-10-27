@@ -31,6 +31,6 @@ Status labels from the design materials (**Core / Preferred / Trial / Open / His
 
 ## History
 
-Created 27 October 2026 by consolidating the renamed **TA Repo Guidance** repository (this repository, preserving its Git commits) and the original [TA Graphic Design System](https://github.com/teodor-andonov/ta-graphic-design-system), imported from commit `8401953fa587b4d5ccd5dbedf9279ddec6ad8c64`. The source repository retains its own separate full Git history. Details: [decisions](logs/decisions.md) and [roadmap](logs/roadmap.md).
+Created 27 October 2026 by consolidating the renamed **TA Repo Guidance** repository (this repository, preserving its Git commits) and the original [TA Graphic Design System](https://github.com/teodor-andonov/ta-graphic-design-system), imported from commit `8401953fa587b4d5ccd5dbedf9279ddec6ad8c64`. The source repository retains its own separate full Git history. To browse **Repo Guidance exactly as it stood before the merger**, use the [pre-merge-2026-10-27 snapshot](https://github.com/teodor-andonov/261027_ta-guides/tree/pre-merge-2026-10-27) (original commit `23384fd`). Details: [decisions](logs/decisions.md) and [roadmap](logs/roadmap.md).
 
 This repo does not impose runtime dependencies on other apps. For agents maintaining **this** repository read [AGENTS.md](AGENTS.md); for the copyable agent instructions for **other** projects use [templates/repository/AGENTS.md](templates/repository/AGENTS.md).

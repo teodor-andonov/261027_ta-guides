@@ -20,3 +20,10 @@
 ## 2026-10-27 — Return to files-only navigation
 
 The owner decided that the short-lived GitHub Pages website introduced in [PR #2](https://github.com/teodor-andonov/261027_ta-guides/pull/2) added unnecessary complexity. **Current decision:** maintain and navigate TA Guides directly as GitHub Markdown and local folders, not as a generated documentation website. Remove the website build, workflow, CSS, HTML homepage and corresponding build-only files. Keep the standalone HTML design experiments and App Icon Studio as useful *tools/examples*, not as part of any website. Preserve historic Git commits rather than rewriting history. Pages itself still needs to be turned off through GitHub repository settings.
+
+## 2026-10-27 — Preserve the pre-merge state as an annotated tag
+
+- Saved the original Repo Guidance at commit `23384fdafa8439f8c93945c6de1e6c247247ad88` as the annotated tag [`pre-merge-2026-10-27`](https://github.com/teodor-andonov/261027_ta-guides/tree/pre-merge-2026-10-27). This predates the TA Guides planning and file-merger commits.
+- Deleted only the two verified temporary branches: `refactor/consolidate-guides-261027` and `site/github-pages-261027`.
+- Continue active work on `main`; tags are historical snapshots rather than ongoing branches. Original TA Graphic Design System remains separately available in its own repository.
+- One-time branch maintenance workflow removed immediately after the successful run; no standing workflow is needed.

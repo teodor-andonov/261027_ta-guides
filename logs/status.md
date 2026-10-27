@@ -29,3 +29,9 @@ Design tokens/preset JSON and original local asset links passed structural check
 ## Next
 
 Keep the collection file-first. Add or edit guides only as needed; do not reinstate a website without a new explicit decision.
+
+## History housekeeping — 2026-10-27
+
+- Only active branch: `main` (both temporary merger/site branches deleted).
+- Pre-merge snapshot: [`pre-merge-2026-10-27`](https://github.com/teodor-andonov/261027_ta-guides/tree/pre-merge-2026-10-27) pointing to original commit `23384fdafa8439f8c93945c6de1e6c247247ad88`.
+- The one-time GitHub Actions cleanup workflow was removed after tagging and branch deletion.
