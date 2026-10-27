@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#eeeeee">
+<title>TA / Soft Precision — Design System Study 02</title>
+<style>
+/*
+  TA / SOFT PRECISION v2
+  Controlled study, not a production token system.
+  Four type roles / shared spacing multipliers / reusable nested cards.
+  No icon fonts, JS framework, custom generated brand graphics, or build step.
+*/
+*{box-sizing:border-box}
+:root{
+  color-scheme:light;
+  --ink:#242424; --sub:#686868; --line:#d6d6d6;
+  --canvas:#e9e9e9; --paper:#f7f7f7; --panel:#eeeeee; --well:#e0e0e0;
+  --deep:#242424; --on-deep:#f8f8f8;
+  --radius:24px; --radius-small:14px;
+}
+html{scroll-behavior:smooth}
+body{margin:0; background:var(--canvas); color:var(--ink); font-family:"Geist Mono","PT Mono",ui-monospace,Consolas,monospace; -webkit-font-smoothing:antialiased; font-synthesis:none}
+button{font:inherit;cursor:pointer}a{color:inherit}
+button:focus-visible,a:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+svg{overflow:visible}
+.icon{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round; flex:none}
+.icon.sm{width:18px;height:18px}.icon.lg{width:32px;height:32px}
+.sprite{width:0;height:0;position:absolute;overflow:hidden}
+.board{max-width:1660px;margin:0 auto;padding:24px;container-type:inline-size}
+.paper{
+  --u:clamp(7px,.625cqw,10px);
+  --s1:var(--u);--s2:calc(2 * var(--u));--s4:calc(4 * var(--u));--s8:calc(8 * var(--u));
+  --display:clamp(34px,calc(4.8 * var(--u)),52px);
+  --heading:clamp(23px,calc(2.8 * var(--u)),31px);
+  --body:clamp(14px,calc(1.6 * var(--u)),16px);
+  --meta:clamp(11px,calc(1.2 * var(--u)),12px);
+  --card-pad:calc(3 * var(--u)); --card-gap:var(--s2);
+  --r:var(--radius);--rs:var(--radius-small);
+  padding:var(--s4);background:var(--paper);color:var(--ink);border-radius:var(--r);display:flex;flex-direction:column;gap:var(--s8);
+  box-shadow:0 6px 35px #00000008;
+}
+.paper.compact{--card-pad:calc(2 * var(--u));--card-gap:var(--s1);--s8:calc(6 * var(--u))}
+.paper.dark{--ink:#ededed;--sub:#adadad;--line:#454545;--canvas:#191919;--paper:#292929;--panel:#333333;--well:#404040;--deep:#eeeeee;--on-deep:#262626;--radius:24px;--radius-small:14px}
+.display{font-size:var(--display);line-height:1.12;font-weight:520;letter-spacing:-.065em;margin:0;max-width:18ch}
+.heading{font-size:var(--heading);line-height:1.22;font-weight:550;letter-spacing:-.065em;margin:0}
+.body{font-size:var(--body);line-height:1.55;font-weight:420;letter-spacing:-.035em;margin:0}
+.meta{font-size:var(--meta);line-height:1.45;font-weight:560;letter-spacing:.085em;text-transform:uppercase;margin:0}
+.muted{color:var(--sub)}
+.card{padding:var(--card-pad);border-radius:var(--r);background:var(--panel);min-width:0;display:flex;flex-direction:column;gap:var(--card-gap)}
+.card.paper-card{background:var(--paper);box-shadow:inset 0 0 0 1px var(--line)}
+.card.well{background:var(--well)}
+.card.deep{background:var(--deep);color:var(--on-deep)}
+.card.tight{gap:var(--s1)}
+.card.flat{background:transparent;padding:0}
+.row{display:flex;align-items:center;gap:var(--s2);min-width:0}
+.between{justify-content:space-between}
+.stack{display:flex;flex-direction:column;gap:var(--s2);min-width:0}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--s2)}
+.span12{grid-column:span 12}.span8{grid-column:span 8}.span7{grid-column:span 7}.span6{grid-column:span 6}.span5{grid-column:span 5}.span4{grid-column:span 4}.span3{grid-column:span 3}
+.rule{height:1px;background:var(--line);width:100%}
+.push{margin-left:auto}
+.pill{display:inline-flex;align-items:center;gap:var(--s1);border:1px solid var(--line);border-radius:999px;padding:9px 13px;font-size:var(--meta);letter-spacing:.03em;text-decoration:none;line-height:1.2;white-space:nowrap}
+.pill.active{background:var(--deep);color:var(--on-deep);border-color:var(--deep)}
+.mark{font-size:var(--heading);font-weight:700;letter-spacing:-.15em;line-height:1}
+.icon-box{width:48px;height:48px;border-radius:var(--rs);display:grid;place-items:center;background:var(--well);flex:none}
+.icon-box.transparent{background:transparent}
+.section{display:flex;flex-direction:column;gap:var(--s4)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:var(--s4)}
+.section-head>.stack{max-width:720px}
+.section-head .body{max-width:43ch}
+.index{display:flex;align-items:center;gap:var(--s2)}
+.index::before{content:"";width:24px;height:2px;background:var(--ink);display:block}
+.shell-header{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);padding-bottom:var(--s2);border-bottom:1px solid var(--line)}
+.shell-head-left{display:flex;align-items:center;gap:var(--s2)}
+.shell-head-left .muted{border-left:1px solid var(--line);padding-left:var(--s2)}
+.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.toggle{border:1px solid var(--line);background:transparent;border-radius:999px;color:var(--ink);padding:9px 13px;font-size:var(--meta);line-height:1.3;letter-spacing:.02em}
+.toggle[aria-pressed="true"]{background:var(--deep);color:var(--on-deep);border-color:var(--deep)}
+.hero{align-items:stretch}
+.hero-left{min-height:420px;justify-content:space-between}
+.hero-left .display{margin:var(--s8) 0 var(--s4)}
+.hero-left .body{max-width:44ch;color:var(--sub)}
+.hero-right{min-height:420px;position:relative;overflow:hidden;background:var(--well)}
+.hero-right .bigtype{position:absolute;right:var(--s4);bottom:calc(-2.1 * var(--u));font-size:clamp(130px,24cqw,355px);font-weight:700;letter-spacing:-.20em;line-height:1;opacity:.095;white-space:nowrap;pointer-events:none}
+.hero-right .align-bottom{margin-top:auto;z-index:1;max-width:330px}
+.hero-right .corner-label{position:absolute;top:var(--card-pad);right:var(--card-pad)}
+.route{min-height:230px;justify-content:space-between}
+.route .heading{max-width:15ch}
+.route .body{max-width:39ch;color:var(--sub)}
+.route-bottom{padding-top:var(--s2);border-top:1px solid var(--line)}
+.micro-nav{padding:var(--s2);border-radius:var(--rs);display:flex;align-items:center;gap:var(--s2);flex-wrap:wrap;background:var(--panel)}
+.micro-nav .nav-title{margin-right:auto}
+.micro-nav .nav-links{display:flex;gap:var(--s2);flex-wrap:wrap}
+.micro-nav .nav-links .meta{letter-spacing:.02em}
+.mock-website{background:var(--well);padding:var(--s2);border-radius:var(--r);display:flex;flex-direction:column;gap:var(--s2)}
+.website-hero{min-height:210px;align-items:end}
+.website-hero .display{max-width:17ch}
+.small-action{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:var(--body);font-weight:570;letter-spacing:-.04em}
+.actionbar{display:flex;justify-content:space-between;align-items:center;gap:var(--s2);flex-wrap:wrap}
+.feature-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s2)}
+.feature{min-height:226px;justify-content:space-between}
+.feature .body{color:var(--sub)}
+.subtle-card{background:var(--well)}
+.report-sheet{aspect-ratio:1 / 1.28;background:var(--paper);border-radius:var(--rs);padding:var(--s2);display:flex;flex-direction:column;gap:var(--s2);box-shadow:inset 0 0 0 1px var(--line)}
+.report-sheet .cover{background:var(--well);border-radius:var(--rs);padding:var(--s2);flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.report-sheet .cover .heading{max-width:10ch}
+.report-sheet .report-foot{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:var(--s1)}
+.diagram{position:relative;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr));gap:4px;aspect-ratio:1.55;padding:var(--s2);background:var(--well);border-radius:var(--rs);overflow:hidden}
+.diagram .cell{border:1px solid var(--sub);border-radius:2px;opacity:.44}
+.diagram .cell.strong{background:var(--sub);opacity:.34}
+.app-mini{min-height:340px;display:grid;grid-template-columns:110px minmax(0,1fr);gap:var(--s2)}
+.app-rail{background:var(--well);border-radius:var(--rs);padding:var(--s2);display:flex;flex-direction:column;gap:var(--s2)}
+.app-stage{background:var(--well);border-radius:var(--rs);padding:var(--s2);display:flex;flex-direction:column;gap:var(--s2)}
+.app-stage .diagram{flex:1}
+.note-card{justify-content:space-between;min-height:270px}
+.stack-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s2)}
+.step{min-height:170px;justify-content:space-between}
+.step .icon-box{background:var(--paper)}
+.swatches{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--s1)}
+.swatch{height:95px;border-radius:var(--rs);border:1px solid #8883}
+.type-samples{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s4)}
+.type-samples .sample{padding:var(--s2) 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:var(--s2)}
+.type-samples .heading,.type-samples .body,.type-samples .display{white-space:normal}
+.spacing{display:flex;gap:var(--s2);align-items:end;margin-top:var(--s2)}
+.spacing>div{background:var(--sub);opacity:.54;border-radius:5px}
+.foot{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:wrap;padding-top:var(--s2);border-top:1px solid var(--line)}
+.foot .body{max-width:58ch}
+.mobile-menu{display:none}
+@media(max-width:1150px){
+  .hero-left,.hero-right{min-height:350px}
+  .feature{min-height:200px}
+  .micro-nav .nav-title{margin:0}
+}
+@media(max-width:900px){
+  .board{padding:12px}
+  .paper{padding:var(--s2);gap:var(--s8)}
+  .span8,.span7,.span6,.span5,.span4,.span3{grid-column:span 12}
+  .hero-right{min-height:280px}.hero-left{min-height:270px}
+  .hero-left .display{margin:var(--s2) 0}
+  .feature-row,.stack-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .type-samples{grid-template-columns:1fr}
+  .report-sheet{aspect-ratio:1.3}
+  .section-head{align-items:start;flex-direction:column}
+}
+@media(max-width:560px){
+  .board{padding:0}
+  .paper{border-radius:0;padding:17px}
+  .shell-header{align-items:start}
+  .shell-head-left .muted{display:none}
+  .controls{justify-content:end}
+  .toggle{padding:7px 9px}
+  .hero-right{min-height:230px}
+  .hero-left{min-height:235px}
+  .feature-row,.stack-list{grid-template-columns:1fr}
+  .app-mini{grid-template-columns:75px minmax(0,1fr)}
+  .app-rail{padding:10px}
+  .route{min-height:190px}
+  .swatch{height:56px}
+  .micro-nav .nav-links{gap:12px}
+  .micro-nav .nav-links .meta{font-size:10px}
+  .type-samples .display{overflow-wrap:anywhere}
+}
+@media print{
+  @page{size:A3 portrait;margin:8mm}
+  body{background:white}
+  .board{max-width:none;padding:0}
+  .paper{box-shadow:none;border-radius:0;padding:6mm}
+  .controls{display:none}
+  .card,.section,.report-sheet{break-inside:avoid}
+  .paper{gap:22px}
+}
+</style>
+</head>
+<body>
+<!-- Lucide-style 24x24 line icon prototypes, embedded for an offline, self-contained demo.
+     When online, official Lucide 1.55.0 replaces these fallback drawings. Offline, the fallback drawings remain. Keep upstream notices when bundling files. -->
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2-9 5 9 5 9-5-9-5"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></symbol>
+  <symbol id="i-studio" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="m11 7-7 14"/><path d="m13 7 7 14"/><path d="M7 15h10"/><path d="M3 21h5m8 0h5"/></symbol>
+  <symbol id="i-notes" viewBox="0 0 24 24"><path d="M5 3h11l3 3v15H5z"/><path d="M16 3v4h3M9 11h6M9 15h6"/><path d="m9 19 2-1 2 1"/></symbol>
+  <symbol id="i-app" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></symbol>
+  <symbol id="i-workflow" viewBox="0 0 24 24"><rect x="2" y="3" width="8" height="6" rx="1"/><rect x="14" y="15" width="8" height="6" rx="1"/><path d="M6 9v5a4 4 0 0 0 4 4h4M18 15V9a4 4 0 0 0-4-4h-4"/></symbol>
+  <symbol id="i-blocks" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 10h18M10 3v18"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7c-3-2-6-2-9-1v14c3-1 6-1 9 1 3-2 6-2 9-1V6c-3-1-6-1-9 1Z"/><path d="M12 7v14"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M8 5h11v11"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 1.9 6.1L20 11l-6.1 1.9L12 19l-1.9-6.1L4 11l6.1-1.9L12 3Z"/><path d="m19 18 .7 2.3L22 21l-2.3.7L19 24l-.7-2.3L16 21l2.3-.7L19 18Z"/></symbol>
+  <symbol id="i-plot" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m6 16 5-5 4 3 5-8"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h8m4 0h4M4 17h4m4 0h8"/><circle cx="14" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></symbol>
+</svg>
+
+<div class="board" id="board">
+<main class="paper" id="paper">
+  <header class="shell-header">
+    <div class="shell-head-left">
+      <div class="row"><span class="mark">TA</span><span class="meta">TEODOR ANDONOV</span></div>
+      <span class="meta muted">IDENTITY STUDY / 02</span>
+    </div>
+    <div class="controls" aria-label="Design study controls">
+      <button class="toggle" id="density" aria-pressed="false" title="Compare compact and comfortable spacing">COMPACT</button>
+      <button class="toggle" id="mode" aria-pressed="false" title="Toggle light/dark surfaces">DARK</button>
+      <button class="toggle" id="print" title="Print or save board to PDF">PRINT ↗</button>
+    </div>
+  </header>
+
+  <section class="section" id="identity">
+    <div class="row between"><p class="meta muted index">00 / IDENTITY</p><p class="meta muted">SOFT PRECISION · V2</p></div>
+    <div class="grid hero">
+      <div class="span7 card hero-left">
+        <p class="meta muted">DESIGN · ARCHITECTURE · COMPUTATION</p>
+        <div class="stack">
+          <h1 class="display">Independent work.<br>Shared methods.</h1>
+          <p class="body">A personal platform for design, research, an independent studio, and the digital tools that connect them.</p>
+        </div>
+        <div class="row between"><span class="pill">TA / PERSONAL UMBRELLA</span><svg class="icon"><use href="#i-arrow"/></svg></div>
+      </div>
+      <div class="span5 card hero-right well">
+        <div class="corner-label"><span class="meta muted">01 / 04 · THE SYSTEM</span></div>
+        <span class="bigtype" aria-hidden="true">TA</span>
+        <div class="stack align-bottom">
+          <span class="icon-box"><svg class="icon lg"><use href="#i-layers"/></svg></span>
+          <h2 class="heading">One grammar.<br>Many applications.</h2>
+          <p class="body muted">Consistent nested cards, fewer type roles, simple line icons, and meaningful whitespace.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="site">
+    <div class="section-head">
+      <div class="stack">
+        <p class="meta muted index">01 / PERSONAL WEBSITE</p>
+        <h2 class="heading">The TA umbrella</h2>
+      </div>
+      <p class="body muted">Portfolio and Method Studio are equally prominent. Notes and Apps remain first-class destinations.</p>
+    </div>
+    <div class="mock-website">
+      <nav class="micro-nav" aria-label="Example TA website navigation">
+        <div class="row nav-title"><span class="mark">TA</span><span class="meta muted">TEODOR ANDONOV</span></div>
+        <div class="nav-links"><span class="meta">PORTFOLIO</span><span class="meta">STUDIO</span><span class="meta muted">NOTES</span><span class="meta muted">APPS</span><span class="meta muted">ABOUT</span></div>
+        <svg class="icon sm"><use href="#i-arrow"/></svg>
+      </nav>
+      <div class="card paper-card website-hero">
+        <p class="meta muted">A PERSONAL PLATFORM / DESIGN & RESEARCH</p>
+        <div class="stack">
+          <h2 class="display">Work, ideas<br>and what comes next.</h2>
+          <p class="body muted">Architecture, computation and systems, collected in one place.</p>
+        </div>
+      </div>
+      <div class="grid">
+        <article class="span6 card route paper-card">
+          <div class="row between"><span class="meta muted">01 / PORTFOLIO</span><svg class="icon lg"><use href="#i-layers"/></svg></div>
+          <div class="stack">
+            <h3 class="heading">Selected work</h3>
+            <p class="body">Professional experience, personal projects, explorations and research.</p>
+          </div>
+          <div class="row between route-bottom"><span class="small-action">EXPLORE WORK</span><svg class="icon"><use href="#i-arrow"/></svg></div>
+        </article>
+        <article class="span6 card route paper-card">
+          <div class="row between"><span class="meta muted">02 / STUDIO</span><svg class="icon lg"><use href="#i-studio"/></svg></div>
+          <div class="stack">
+            <h3 class="heading">Method Studio</h3>
+            <p class="body">Architecture, computational design and specialist collaborations.</p>
+          </div>
+          <div class="row between route-bottom"><span class="small-action">WORK TOGETHER</span><svg class="icon"><use href="#i-arrow"/></svg></div>
+        </article>
+      </div>
+      <div class="grid">
+        <article class="span6 card tight"><div class="row"><svg class="icon"><use href="#i-notes"/></svg><span class="body">Notes & articles</span><svg class="icon sm push"><use href="#i-arrow"/></svg></div></article>
+        <article class="span6 card tight"><div class="row"><svg class="icon"><use href="#i-app"/></svg><span class="body">Apps & tools</span><svg class="icon sm push"><use href="#i-arrow"/></svg></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="section-head">
+      <div class="stack">
+        <p class="meta muted index">02 / STUDIO METHOD</p>
+        <h2 class="heading">Services, explained clearly</h2>
+      </div>
+      <p class="body muted">Functional icons, not a bespoke illustration for every item. Artwork can be introduced behind the cards later.</p>
+    </div>
+    <div class="feature-row">
+      <article class="card feature">
+        <div class="icon-box"><svg class="icon lg"><use href="#i-studio"/></svg></div>
+        <div class="stack">
+          <h3 class="heading">Architecture</h3>
+          <p class="body">Design concepts, spatial systems and technical development.</p>
+        </div>
+        <div class="row between"><span class="meta muted">01 / DESIGN</span><svg class="icon sm"><use href="#i-arrow"/></svg></div>
+      </article>
+      <article class="card feature">
+        <div class="icon-box"><svg class="icon lg"><use href="#i-workflow"/></svg></div>
+        <div class="stack">
+          <h3 class="heading">Computation</h3>
+          <p class="body">Parametric workflows, automation and custom digital tools.</p>
+        </div>
+        <div class="row between"><span class="meta muted">02 / METHODS</span><svg class="icon sm"><use href="#i-arrow"/></svg></div>
+      </article>
+      <article class="card feature">
+        <div class="icon-box"><svg class="icon lg"><use href="#i-grid"/></svg></div>
+        <div class="stack">
+          <h3 class="heading">Façades</h3>
+          <p class="body">Envelope systems, geometry, rationalisation and performance.</p>
+        </div>
+        <div class="row between"><span class="meta muted">03 / SYSTEMS</span><svg class="icon sm"><use href="#i-arrow"/></svg></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="applications">
+    <div class="section-head">
+      <div class="stack">
+        <p class="meta muted index">03 / APPLICATIONS</p>
+        <h2 class="heading">One language, different formats</h2>
+      </div>
+      <p class="body muted">Apply the same typography, rounded surfaces, linework and information hierarchy to useful things.</p>
+    </div>
+    <div class="grid">
+      <article class="span4 card">
+        <div class="row between"><p class="meta muted">01 / REPORT</p><svg class="icon sm"><use href="#i-book"/></svg></div>
+        <div class="report-sheet" role="img" aria-label="Example report cover with coherent title, simplified facade diagram and metadata">
+          <div class="row between"><span class="meta">TA / RESEARCH</span><span class="meta muted">2026</span></div>
+          <div class="cover">
+            <div class="stack">
+              <h3 class="heading">Envelope<br>systems.</h3>
+              <p class="body muted">Study 01 / Geometry, performance and material logic.</p>
+            </div>
+            <div class="diagram" aria-hidden="true" data-cells="40"></div>
+          </div>
+          <div class="report-foot"><span class="meta muted">TECHNICAL REPORT</span><span class="meta muted">01 / 12</span></div>
+        </div>
+      </article>
+      <article class="span4 card">
+        <div class="row between"><p class="meta muted">02 / NOTES</p><svg class="icon sm"><use href="#i-notes"/></svg></div>
+        <div class="card paper-card note-card">
+          <div class="stack">
+            <p class="meta muted">FIELD NOTES / 13.10.26</p>
+            <h3 class="heading">Making systems legible.</h3>
+            <p class="body muted">A short reflection on the intersection of design, code and the decisions connecting them.</p>
+          </div>
+          <div class="rule"></div>
+          <div class="row between"><span class="meta">READ NOTE</span><svg class="icon sm"><use href="#i-arrow"/></svg></div>
+        </div>
+        <div class="card tight well">
+          <p class="meta muted">PUBLISHING</p>
+          <p class="body">News, short notes, articles and research share a calm editorial system.</p>
+        </div>
+      </article>
+      <article class="span4 card">
+        <div class="row between"><p class="meta muted">03 / DIGITAL TOOLS</p><svg class="icon sm"><use href="#i-app"/></svg></div>
+        <div class="app-mini">
+          <div class="app-rail">
+            <p class="meta muted">TA / APP</p>
+            <div class="icon-box"><svg class="icon"><use href="#i-grid"/></svg></div>
+            <div class="icon-box transparent"><svg class="icon"><use href="#i-layers"/></svg></div>
+            <div class="icon-box transparent"><svg class="icon"><use href="#i-sliders"/></svg></div>
+          </div>
+          <div class="app-stage">
+            <div class="row between"><p class="meta">MODEL VIEWER</p><svg class="icon sm"><use href="#i-arrow"/></svg></div>
+            <div class="diagram" data-cells="40" aria-label="Abstract model preview represented by a neutral geometry diagram"></div>
+            <div class="row between"><p class="meta muted">SCENE / 03</p><p class="meta muted">VIEW / ISOMETRIC</p></div>
+          </div>
+        </div>
+        <p class="body muted">A PWA or design tool can feel part of TA without becoming a miniature brochure.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="logic">
+    <div class="section-head">
+      <div class="stack">
+        <p class="meta muted index">04 / GRAPHIC GRAMMAR</p>
+        <h2 class="heading">Explain with less</h2>
+      </div>
+      <p class="body muted">Three consistent components are stronger than three independently styled illustrations.</p>
+    </div>
+    <div class="stack-list">
+      <article class="card step">
+        <span class="icon-box"><svg class="icon"><use href="#i-layers"/></svg></span>
+        <div class="stack"><p class="meta muted">01 / ARRANGE</p><p class="body">One layout grammar.</p></div>
+      </article>
+      <article class="card step">
+        <span class="icon-box"><svg class="icon"><use href="#i-workflow"/></svg></span>
+        <div class="stack"><p class="meta muted">02 / CONNECT</p><p class="body">Explicit relationships.</p></div>
+      </article>
+      <article class="card step">
+        <span class="icon-box"><svg class="icon"><use href="#i-plot"/></svg></span>
+        <div class="stack"><p class="meta muted">03 / TEST</p><p class="body">Measurable decisions.</p></div>
+      </article>
+      <article class="card step">
+        <span class="icon-box"><svg class="icon"><use href="#i-blocks"/></svg></span>
+        <div class="stack"><p class="meta muted">04 / SHARE</p><p class="body">Reusable outcomes.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="tokens">
+    <div class="section-head">
+      <div class="stack">
+        <p class="meta muted index">05 / SYSTEM ELEMENTS</p>
+        <h2 class="heading">A smaller vocabulary</h2>
+      </div>
+      <p class="body muted">Four type roles, a restrained grayscale palette, recurrent spacing and two primary corner tokens. All numeric values are working tests.</p>
+    </div>
+    <div class="grid">
+      <div class="span7 card">
+        <p class="meta muted">TYPE / GEIST MONO PREFERRED</p>
+        <div class="type-samples">
+          <div class="sample"><p class="meta muted">DISPLAY / 4.8u</p><p class="display">Aa 0123</p></div>
+          <div class="sample"><p class="meta muted">HEADING / 2.8u</p><p class="heading">Less, but better.</p></div>
+          <div class="sample"><p class="meta muted">BODY / 1.6u</p><p class="body">Design and computation work together through clear systems.</p></div>
+          <div class="sample"><p class="meta muted">METADATA / 1.2u</p><p class="meta">STUDY / 001 · OCT 2026</p></div>
+        </div>
+        <div class="rule"></div>
+        <p class="body muted">BG / Дизайн, архитектура и изследвания.</p>
+        <p class="meta muted">Verify true Bulgarian forms in the installed final font.</p>
+      </div>
+      <div class="span5 card">
+        <p class="meta muted">COLOUR / ACHROMATIC</p>
+        <div class="swatches">
+          <div class="stack tight"><div class="swatch" style="background:#242424"></div><p class="meta muted">INK</p></div>
+          <div class="stack tight"><div class="swatch" style="background:#686868"></div><p class="meta muted">MID</p></div>
+          <div class="stack tight"><div class="swatch" style="background:#d6d6d6"></div><p class="meta muted">RULE</p></div>
+          <div class="stack tight"><div class="swatch" style="background:#e9e9e9"></div><p class="meta muted">BASE</p></div>
+          <div class="stack tight"><div class="swatch" style="background:#f7f7f7"></div><p class="meta muted">PAPER</p></div>
+        </div>
+        <div class="rule"></div>
+        <p class="meta muted">SPACING / 1U · 2U · 4U · 8U</p>
+        <div class="spacing">
+          <div style="height:10px;width:10px"></div><div style="height:20px;width:20px"></div><div style="height:40px;width:40px"></div><div style="height:64px;width:80px"></div>
+        </div>
+        <div class="rule"></div>
+        <p class="meta muted">ROUNDED SURFACES</p>
+        <div class="grid">
+          <div class="span6 card well tight"><p class="meta">24PX / CARD</p><p class="body muted">Soft outer grouping</p></div>
+          <div class="span6 card paper-card tight" style="border-radius:var(--rs)"><p class="meta">14PX / INNER</p><p class="body muted">Media / controls</p></div>
+        </div>
+        <div class="rule"></div>
+        <p class="meta muted">FUNCTIONAL ICONS / LINE FAMILY</p>
+        <div class="row between" style="flex-wrap:wrap">
+          <svg class="icon"><use href="#i-layers"/></svg><svg class="icon"><use href="#i-studio"/></svg>
+          <svg class="icon"><use href="#i-notes"/></svg><svg class="icon"><use href="#i-app"/></svg>
+          <svg class="icon"><use href="#i-workflow"/></svg><svg class="icon"><use href="#i-grid"/></svg>
+          <svg class="icon"><use href="#i-plot"/></svg><svg class="icon"><use href="#i-arrow"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="stack"><p class="meta">TA / SOFT PRECISION</p><p class="body muted">Identity study · V2 / 13 October 2026</p></div>
+    <div class="stack"><p class="meta">STATUS / DESIGN EXPLORATION</p><p class="body muted">Logo, Method name, type metrics and proprietary A/B imagery still require approval. Sample content is illustrative.</p></div>
+  </footer>
+</main>
+</div>
+
+<script>
+(()=>{
+  const p=document.getElementById("paper");
+  const density=document.getElementById("density");
+  const mode=document.getElementById("mode");
+  density.addEventListener("click",()=>{const on=p.classList.toggle("compact");density.setAttribute("aria-pressed",String(on));density.textContent=on?"COMFORTABLE":"COMPACT";});
+  mode.addEventListener("click",()=>{const on=p.classList.toggle("dark");mode.setAttribute("aria-pressed",String(on));mode.textContent=on?"LIGHT":"DARK";});
+  document.getElementById("print").addEventListener("click",()=>window.print());
+  // Optional enhancement: official Lucide icons when online. The local inline
+  // specimens above remain fully functional if the CDN is unavailable.
+  const lucideMap={
+    layers:"layers-3",studio:"drafting-compass",notes:"notebook-pen",
+    app:"app-window",workflow:"workflow",blocks:"blocks",
+    grid:"panels-top-left",book:"book-open",arrow:"arrow-up-right",
+    spark:"sparkles",plot:"chart-no-axes-combined",sliders:"settings-2"
+  };
+  const enhance=()=>{
+    if(!window.lucide || !window.lucide.createIcons)return;
+    document.querySelectorAll("svg.icon > use").forEach(use=>{
+      const svg=use.parentElement;
+      const symbol=(use.getAttribute("href")||"").replace("#i-","");
+      const name=lucideMap[symbol];
+      if(!name)return;
+      const el=document.createElement("i");
+      el.setAttribute("data-lucide",name);
+      el.className=svg.getAttribute("class")||"icon";
+      el.setAttribute("aria-hidden","true");
+      svg.replaceWith(el);
+    });
+    window.lucide.createIcons({attrs:{"stroke-width":1.75}});
+  };
+  const iconScript=document.createElement("script");
+  iconScript.src="https://unpkg.com/lucide@1.55.0/dist/umd/lucide.min.js";
+  iconScript.async=true;
+  iconScript.onload=enhance;
+  iconScript.onerror=()=>{}; // Offline fallback is deliberately self-contained.
+  document.head.appendChild(iconScript);
+  document.querySelectorAll(".diagram[data-cells]").forEach(el=>{
+    for(let n=0;n<40;n++){
+      const d=document.createElement("div");
+      const c=n%8,r=Math.floor(n/8);
+      d.className="cell"+((c===r||c===7-r||(c>1&&c<6&&r===2))?" strong":"");
+      el.appendChild(d);
+    }
+  });
+})();
+</script>
+</body>
+</html>
