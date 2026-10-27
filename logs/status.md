@@ -43,3 +43,7 @@ The WIP design boards live in `studies/261012-2105_visual-identity-directions/`.
 ## Flat studies — 2026-10-27
 
 The studies now live in two direct, dated folders: `studies/261012-2105_visual-identity-directions/` and `studies/261013-0849_soft-precision-v2/`. The date/time prefixes use each study's initial Git-recorded creation time (UTC). No thematic nesting is used.
+
+## 2026-10-27 — New repository workflow guide
+
+Added [GitHub development and publishing](../guides/repositories/github-development-and-publishing.md) as a reusable convention for website/PWA repositories: side-branch development → reviewed squash merge to `main` → GitHub Actions publishes, with optional manual dispatch. TA Guides remains files-only and has no publication workflow. Existing application workflows are unchanged by this guide.
