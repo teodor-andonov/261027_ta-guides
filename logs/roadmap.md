@@ -15,10 +15,19 @@ Merge the former Repo Guidance and Graphic Design System into an informal, expan
 - [x] Bring across HTML/SVG design boards, app icon editor and JSON preset.
 - [x] Replace repository README and AGENTS with TA Guides-wide entry points.
 - [x] Build a small standalone HTML guide landing page.
-- [ ] Verify all relocated relative links including older docs and HTML specimens.
-- [ ] Validate JSON token and preset files and target template layout.
-- [ ] Inspect preview/tool usability in a browser where available.
+- [x] Verify moved Markdown links (92 resolved; one intentionally illustrative sample screenshot link in the repository-memory guide).
+- [x] Parse design tokens and icon preset JSON; confirm the repository template is self-contained and present.
+- [ ] Run interactive browser checks for the visual boards and Icon Studio (not performed in this migration; source paths and JSON statically validated).
 - [ ] Merge migration branch and confirm `main` content.
+
+### Validation performed on 27 Oct 2026
+
+- Markdown: 92 valid relative links; one illustrative placeholder screenshot link is intentionally absent.
+- HTML: 24 local href/src targets checked, none broken.
+- TOKENS.json and launcher preset parse as JSON.
+- Old auto-redirect replaced with the visual index.
+- Icon Studio documentation href points to the migrated guide.
+- Interactive browser controls, exports and installed PWA behaviour were NOT tested.
 
 ## After the merge
 

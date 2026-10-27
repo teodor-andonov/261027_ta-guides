@@ -2,10 +2,21 @@
 
 Updated 2026-10-27
 
-## State
+## Current
 
-Repository consolidation staged on `refactor/consolidate-guides-261027`. Content from both source repositories is grouped into guides, templates, tools and visual examples. The original private Graphic Design System remains intact as an archive of its own history.
+Guidance and the Graphic Design System are consolidated in the TA Guides review branch. The personal collection preserves documentation, repo templates, visual studies, the app icon editor, its preset and historical decisions.
 
-## Validation and handover
+## Static verification
 
-Check migrated document links, HTML example references, JSON syntax and the reusable template paths. Once verified, merge into `main` and note any runtime checks still pending. Publishing, screenshots, and consumer-app changes are outside this request.
+- 92 Markdown links resolved; one illustrative screenshot path intentionally refers to a placeholder filename.
+- 24 local HTML links verified.
+- Design tokens and icon preset JSON parsed.
+- Copyable repository template is present and App Icon Studio points to the migrated guide.
+
+## Limitations
+
+No browser-side interactive test or icon export was performed. GitHub Pages publishing, screenshots and consuming app changes were not performed. The Graphic Design System source repo retains its original Git history.
+
+## Next
+
+Merge the review PR into main, then treat browser regression tests as a separate future task.
