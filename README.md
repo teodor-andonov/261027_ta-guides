@@ -2,7 +2,7 @@
 
 **A personal, evolving collection of practical guides, conventions, visual references, examples and small tools.**
 
-TA Guides helps me remember and reuse useful approaches to design, development and other recurring topics. It is informal and personal—not a practice/company standards manual. Areas are added when real material exists.
+TA Guides helps me remember and reuse useful approaches to design, development and other recurring topics. It is informal and personal—not a practice/company standards manual. Browse the Markdown directly on GitHub or in a local folder. Areas are added when real material exists.
 
 ## Guides
 
@@ -16,7 +16,6 @@ TA Guides helps me remember and reuse useful approaches to design, development a
 - [TA app icon preset](tools/presets/ta-app-icon-default.json) — approved current launcher default.
 - [Soft Precision v2](examples/graphic-design/directions/soft-precision-v2.html) — interactive design study.
 - [Comparison of visual directions](examples/graphic-design/directions/compare.html) — earlier SVG studies.
-- [Local HTML index](index.html) — simple visual navigation; no publication configured.
 
 ## Organisation
 

@@ -14,7 +14,7 @@ Merge the former Repo Guidance and Graphic Design System into an informal, expan
 - [x] Move copyable repository template into `templates/repository/` and add the agent project memory guide.
 - [x] Bring across HTML/SVG design boards, app icon editor and JSON preset.
 - [x] Replace repository README and AGENTS with TA Guides-wide entry points.
-- [x] Build a small standalone HTML guide landing page.
+- [x] Originally built a standalone HTML landing page; **reversed 27 Oct 2026** to keep files-only navigation.
 - [x] Verify moved Markdown links (92 resolved; one intentionally illustrative sample screenshot link in the repository-memory guide).
 - [x] Parse design tokens and icon preset JSON; confirm the repository template is self-contained and present.
 - [ ] Run interactive browser checks for the visual boards and Icon Studio (not performed in this migration; source paths and JSON statically validated).
@@ -25,13 +25,20 @@ Merge the former Repo Guidance and Graphic Design System into an informal, expan
 - Markdown: 92 valid relative links; one illustrative placeholder screenshot link is intentionally absent.
 - HTML: 24 local href/src targets checked, none broken.
 - TOKENS.json and launcher preset parse as JSON.
-- Old auto-redirect replaced with the visual index.
+- Historical: replaced the old redirect with a visual index, subsequently removed in the website rollback.
 - Icon Studio documentation href points to the migrated guide.
 - Interactive browser controls, exports and installed PWA behaviour were NOT tested.
+
+## 27 Oct 2026 — files-only simplification
+
+- [x] Remove the generated-site build script, GitHub Pages workflow, website stylesheet and website-specific README.
+- [x] Remove the root HTML homepage and its now-unnecessary root `.gitignore`.
+- [x] Restore README to GitHub/local-folder navigation.
+- [ ] Disable GitHub Pages in repository Settings to unpublish the previously deployed website (requires owner administration; not possible via the available connector).
 
 ## After the merge
 
 - New guide domains are added **only** when useful content exists, not proactively.
 - Refine individual guides and visual examples in later cycles without losing the original provenance.
 - Keep source Graphic Design System repo available as historical archive.
-- Consider a richer lookbook interface later, only if actually useful. Publishing remains manual/explicit.
+- Keep TA Guides file-first; website generation and publishing were explicitly rolled back on 27 Oct 2026.

@@ -2,32 +2,30 @@
 
 Updated 2026-10-27
 
-## Completed
+## Current
 
-Repo Guidance and Graphic Design System have been consolidated into the personal TA Guides repository on `main` through [PR #1](https://github.com/teodor-andonov/261027_ta-guides/pull/1).
-Original Repo Guidance ancestry is retained through the renamed destination, and the private Graphic Design System remains intact as a record of its own Git history.
+Personal guide collection, navigated directly through GitHub or the local filesystem. No generated website, dedicated homepage, site build or publication workflow.
 
-## Content
+The Repo Guidance and Graphic Design System consolidation remains complete ([PR #1](https://github.com/teodor-andonov/261027_ta-guides/pull/1)); its content is unchanged by the website rollback.
 
-- `guides/` — graphic design, identity history and repository memory.
-- `templates/` — copyable repository `AGENTS.md`, logging trackers and ignored test-artifact convention.
-- `tools/` — app icon utility and approved launcher JSON preset.
-- `examples/` — SVG and interactive HTML design studies.
-- `logs/` — decisions, roadmap and handover history.
-- `index.html` — standalone visual directory, replacing the old study redirect.
+## Structure
 
-## Verified
+- `guides/` — graphic design, TA identity history and repository conventions.
+- `templates/` — copyable agent instructions, logs and tracker files.
+- `tools/` — standalone App Icon Studio and JSON presets.
+- `examples/` — standalone SVG/HTML design references; **not** a website.
+- `logs/` — roadmap, decisions, handover history.
 
-- Both JSON files parse successfully.
-- 92 actual relative Markdown links resolve; one illustrative example screenshot filename isn't a real asset.
-- 24 local HTML links resolve.
-- The migrated App Icon Studio points to its moved guide, and the copyable project template is present.
+## Website rollback
 
-## Not tested / out of scope
+The experimental GitHub Pages website introduced by [PR #2](https://github.com/teodor-andonov/261027_ta-guides/pull/2) was intentionally removed at the owner's request. Website-only files, generated site tooling, deployment workflow and root HTML homepage were removed. Historical commits remain available through Git.
 
-- No interactive browser regression test of the example boards, Icon Studio controls or asset exports.
-- No screenshots captured, no Pages deployment triggered by us, and no consuming app repositories modified.
+**GitHub Pages repository setting:** disabling Pages under Settings → Pages remains an owner-side administrative action; deleting the workflow does not guarantee that GitHub will unpublish an already deployed site.
+
+## Previous checks
+
+Design tokens/preset JSON and original local asset links passed structural checks during consolidation. Interactive browser tooling and export behaviour were not retested during this cleanup.
 
 ## Next
 
-Future cycles can refine individual guides, test visual tools in a real browser, and improve the lookbook without further restructuring by default.
+Keep the collection file-first. Add or edit guides only as needed; do not reinstate a website without a new explicit decision.
