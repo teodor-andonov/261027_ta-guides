@@ -12,10 +12,10 @@ TA Guides helps me remember and reuse useful approaches to design, development a
 ## Reusable material
 
 - [Repository template](templates/repository/) — copyable agent instructions, logs and tracker files.
-- [App Icon Studio](tools/app-icon-studio.html) — interactive Lucide icon styling and exports.
-- [TA app icon preset](tools/presets/ta-app-icon-default.json) — approved current launcher default.
-- [Soft Precision v2](examples/graphic-design/directions/soft-precision-v2.html) — interactive design study.
-- [Comparison of visual directions](examples/graphic-design/directions/compare.html) — earlier SVG studies.
+- [App Icon Studio](tools/261027-1116_app-icon-studio/app-icon-studio.html) — interactive Lucide icon styling and exports.
+- [TA app icon preset](tools/261027-1116_app-icon-studio/ta-app-icon-default.json) — approved current launcher default.
+- [Soft Precision v2](studies/graphic-design/directions/soft-precision-v2.html) — interactive design study.
+- [Comparison of visual directions](studies/graphic-design/directions/compare.html) — earlier SVG studies.
 
 ## Organisation
 
@@ -24,7 +24,7 @@ TA Guides helps me remember and reuse useful approaches to design, development a
 | `guides/` | Practical advice, decisions and explanations |
 | `templates/` | Self-contained files and structures to reuse |
 | `tools/` | Functional utilities and presets |
-| `examples/` | Design boards, demonstrations and sample outputs |
+| `studies/` | Work-in-progress visual investigations and explorations |
 | `logs/` | Development roadmap, handovers and decisions about this repository |
 
 Status labels from the design materials (**Core / Preferred / Trial / Open / Historical**) remain scoped to those documents. A reusable guide is not automatically a mandatory standard; project-specific decisions live in the project repo.

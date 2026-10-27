@@ -12,8 +12,8 @@ The Repo Guidance and Graphic Design System consolidation remains complete ([PR 
 
 - `guides/` — graphic design, TA identity history and repository conventions.
 - `templates/` — copyable agent instructions, logs and tracker files.
-- `tools/` — standalone App Icon Studio and JSON presets.
-- `examples/` — standalone SVG/HTML design references; **not** a website.
+- `tools/` — timestamped tool folders, currently `261027-1116_app-icon-studio/` with the Icon Studio and its JSON preset.
+- `studies/` — WIP SVG/HTML explorations and comparison boards; **not** a website.
 - `logs/` — roadmap, decisions, handover history.
 
 ## Website rollback
@@ -35,3 +35,7 @@ Keep the collection file-first. Add or edit guides only as needed; do not reinst
 - Only active branch: `main` (both temporary merger/site branches deleted).
 - Pre-merge snapshot: [`pre-merge-2026-10-27`](https://github.com/teodor-andonov/261027_ta-guides/tree/pre-merge-2026-10-27) pointing to original commit `23384fdafa8439f8c93945c6de1e6c247247ad88`.
 - The one-time GitHub Actions cleanup workflow was removed after tagging and branch deletion.
+
+## Folder organisation update — 2026-10-27
+
+The WIP design boards live in `studies/graphic-design/directions/`. App Icon Studio and its companion preset live together in `tools/261027-1116_app-icon-studio/`. All cross-references were updated. See `logs/decisions.md` for rationale.

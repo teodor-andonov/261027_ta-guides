@@ -27,3 +27,10 @@ The owner decided that the short-lived GitHub Pages website introduced in [PR #2
 - Deleted only the two verified temporary branches: `refactor/consolidate-guides-261027` and `site/github-pages-261027`.
 - Continue active work on `main`; tags are historical snapshots rather than ongoing branches. Original TA Graphic Design System remains separately available in its own repository.
 - One-time branch maintenance workflow removed immediately after the successful run; no standing workflow is needed.
+
+## 2026-10-27 — Rename WIP examples as studies; package tools by original creation timestamp
+
+- Renamed `examples/` to `studies/` because the existing visual directions and HTML boards are still explorations, not polished reusable examples.
+- Each reusable tool should have its own folder named `YYMMDD-HHmm_short-name/`, using the tool's **original creation time** (not today's refactoring time).
+- Consolidated `app-icon-studio.html` and its approved JSON preset into `tools/261027-1116_app-icon-studio/` (original Icon Studio creation: 27 October 2026 at approximately 11:16 UTC).
+- This is a filesystem change only: no new website, no publishing, no change to the pre-merge Git tag, and no changes to the underlying design decisions.

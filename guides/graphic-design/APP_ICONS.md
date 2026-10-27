@@ -6,7 +6,7 @@
 
 ## Interactive design tool — TA Icon Studio
 
-**[Open/download the HTML Icon Studio](../../tools/app-icon-studio.html)** — standalone editable-browser experiment, created 27 October 2026. Open the **downloaded HTML file** in a modern browser; GitHub's file view shows source rather than running the app.
+**[Open/download the HTML Icon Studio](../../tools/261027-1116_app-icon-studio/app-icon-studio.html)** — standalone editable-browser experiment, created 27 October 2026. Open the **downloaded HTML file** in a modern browser; GitHub's file view shows source rather than running the app.
 
 The tool lets you select the family icons or search/load other Lucide names, adjust **stroke weight, icon scale, X/Y offsets, icon/background colours, background corner radius and transparent background**, inspect **desktop, circular Android-maskable and favicon-size previews**, and export **SVG, 192/512 PNG, maskable 192/512 PNG, 64px favicon**, plus a JSON settings preset.
 
@@ -16,7 +16,7 @@ The editor loads authentic Lucide geometry from a **pinned `lucide-static@1.61.0
 
 ## Selected shared launcher preset — approved 27 October 2026
 
-**Source of truth:** the owner's uploaded [TA Icon Studio configuration](../../tools/presets/ta-app-icon-default.json). These are **approved current defaults** for all TA app launcher icons, while each app's Lucide glyph remains distinct.
+**Source of truth:** the owner's uploaded [TA Icon Studio configuration](../../tools/261027-1116_app-icon-studio/ta-app-icon-default.json). These are **approved current defaults** for all TA app launcher icons, while each app's Lucide glyph remains distinct.
 
 | Property | Shared value |
 | --- | --- |

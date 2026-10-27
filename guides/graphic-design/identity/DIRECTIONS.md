@@ -5,7 +5,7 @@
 
 ## Soft Precision v2 — HTML/CSS application board
 
-**NEW primary working study:** **[Open Soft Precision v2](../../../examples/graphic-design/directions/soft-precision-v2.html)**.
+**NEW primary working study:** **[Open Soft Precision v2](../../../studies/graphic-design/directions/soft-precision-v2.html)**.
 
 After comparing SVG and HTML authoring, the current workflow uses **one standalone HTML/CSS file** as the visual design-board source. It is easier to evolve recursive Cards, reuse real components, tighten typography and add semantic icons than a manually positioned SVG illustration. The original SVG boards remain as dated design exploration; fixed-format SVG/PDF export is an optional downstream deliverable.
 
@@ -46,13 +46,13 @@ See [ICONOGRAPHY.md](../ICONOGRAPHY.md) and the updated rhythm rules in [DESIGN.
 - reports/publication artboard, presentation system, notes and app UI examples;
 - typography specimen (Latin + Bulgarian), grayscale palette, icons, component details.
 
-A simple **[HTML review viewer](../../../examples/graphic-design/directions/compare.html)** lets you switch between the three boards and compare them after downloading/cloning the repo (open that HTML locally). Individual SVG links work in GitHub's file viewer too.
+A simple **[HTML review viewer](../../../studies/graphic-design/directions/compare.html)** lets you switch between the three boards and compare them after downloading/cloning the repo (open that HTML locally). Individual SVG links work in GitHub's file viewer too.
 
 ### Large boards — primary visual comparison
 
-1. **[01 — Editorial Framework / full identity board](../../../examples/graphic-design/directions/01-editorial-framework-board.svg)** — disciplined layout, spacious white surfaces, fine rules, minimal corner radii.
-2. **[02 — Modular Signal / full identity board](../../../examples/graphic-design/directions/02-modular-signal-board.svg)** — dark grayscale, strong typographic contrast and higher-density computational interface.
-3. **[03 — Soft Precision / full identity board](../../../examples/graphic-design/directions/03-mineral-field-board.svg)** — **latest user favourite**; softly rounded monochrome surfaces, comfortable space, calm hierarchy. *No warm tint or saturation.*
+1. **[01 — Editorial Framework / full identity board](../../../studies/graphic-design/directions/01-editorial-framework-board.svg)** — disciplined layout, spacious white surfaces, fine rules, minimal corner radii.
+2. **[02 — Modular Signal / full identity board](../../../studies/graphic-design/directions/02-modular-signal-board.svg)** — dark grayscale, strong typographic contrast and higher-density computational interface.
+3. **[03 — Soft Precision / full identity board](../../../studies/graphic-design/directions/03-mineral-field-board.svg)** — **latest user favourite**; softly rounded monochrome surfaces, comfortable space, calm hierarchy. *No warm tint or saturation.*
 
 All three demonstrate **the system in use across media** rather than just a homepage. They avoid pretending the A/B proprietary imagery system has been finalized; icons, restrained architectural linework and neutral placeholders are used where needed. Wordmarks, font metrics and final commercial copy are still conceptual.
 
@@ -62,9 +62,9 @@ The small 1600 × 1120 page-oriented SVGs below remain in the repo as **historic
 
 ## View the three editable boards
 
-- **[01 — Editorial Framework](../../../examples/graphic-design/directions/01-editorial-framework.svg)** — precise, calm, mostly white: an architectural publication with distinctive geometric punctuation.
-- **[02 — Modular Signal](../../../examples/graphic-design/directions/02-modular-signal.svg)** — high contrast, denser, more explicitly computational: a recognizable visual toolset and strong symbol system.
-- **[03 — Mineral Field (original sketch)](../../../examples/graphic-design/directions/03-mineral-field.svg)** — early soft-field sketch, since expanded into the neutral-gray **Soft Precision** full board.
+- **[01 — Editorial Framework](../../../studies/graphic-design/directions/01-editorial-framework.svg)** — precise, calm, mostly white: an architectural publication with distinctive geometric punctuation.
+- **[02 — Modular Signal](../../../studies/graphic-design/directions/02-modular-signal.svg)** — high contrast, denser, more explicitly computational: a recognizable visual toolset and strong symbol system.
+- **[03 — Mineral Field (original sketch)](../../../studies/graphic-design/directions/03-mineral-field.svg)** — early soft-field sketch, since expanded into the neutral-gray **Soft Precision** full board.
 
 The **original sketches** are editable SVGs at 1600 × 1120. The **new primary boards** are editable SVGs at 1800 × 2975. No fonts are bundled; Geist Mono displays where installed, otherwise a monospace fallback. Neither size is a finished responsive website. Copy, icons and numerical choices remain exploratory.
 

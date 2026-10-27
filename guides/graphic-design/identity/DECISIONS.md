@@ -43,7 +43,7 @@ Practical implications:
 - Distinct content and calls to action appropriate to each function.
 - Neither route is a nested afterthought nor a separate competing sub-brand.
 
-**Stage 02 opened:** [DIRECTIONS.md](DIRECTIONS.md) documents three **concept studies**, with editable vector boards in [directions/](../../../examples/graphic-design/directions):
+**Stage 02 opened:** [DIRECTIONS.md](DIRECTIONS.md) documents three **concept studies**, with editable vector boards in [directions/](../../../studies/graphic-design/directions):
 **01 / Editorial Framework**, **02 / Modular Signal**, **03 / Mineral Field**.
 All use equal primary channels so differences in treatment can be judged fairly. No visual direction, logomark, diffusion algorithm or numeric type scale has been approved yet.
 
@@ -55,7 +55,7 @@ The earlier 12 October **C = both equally** decision refers to **Portfolio and S
 
 **Studio name:** September discussion favoured **METOD** among Bulgarian/international names, but it was not finally chosen. The latest user wording is **Method / Studio Method**, a preferred **working name**, still not legally or visually locked.
 
-**Stage 02 visual feedback:** The first set of sketches looked too much like webpages. The user wanted **much bigger identity/application boards** across website, reports, presentation, apps etc. The soft rounded feel of Direction 03 is preferred; **strict grayscale without warm saturation**; proprietary A/B image system is deferred; use simple icons and placeholder linework meanwhile. Large application boards now live in `directions/*-board.svg`; see [DIRECTIONS.md](DIRECTIONS.md) and [SITE_ARCHITECTURE.md](SITE_ARCHITECTURE.md). Visual approval remains pending.
+**Stage 02 visual feedback:** The first set of sketches looked too much like webpages. The user wanted **much bigger identity/application boards** across website, reports, presentation, apps etc. The soft rounded feel of Direction 03 is preferred; **strict grayscale without warm saturation**; proprietary A/B image system is deferred; use simple icons and placeholder linework meanwhile. Large application boards are stored in `studies/graphic-design/directions/*-board.svg`; see [DIRECTIONS.md](DIRECTIONS.md) and [SITE_ARCHITECTURE.md](SITE_ARCHITECTURE.md). Visual approval remains pending.
 
 ## Selection — 13 October 2026: Soft Precision + functional icons
 
@@ -85,7 +85,7 @@ On 27 October the user specifically asked to formalize using **Lucide as the ins
 
 ## Approved current app icon styling — 27 October 2026
 
-The owner supplied a **TA Icon Studio settings JSON** and explicitly selected its parameters as the **shared monochrome family preset for now**. Exact values: Lucide `2.0` stroke; regular icon `60%` scale; tile `25%` corner rounding; offsets `0%/0%`; icon `#333333`; tile `#E6E6E6`; transparency `false`; guide `false`. Source/preset: [presets/ta-app-icon-default.json](../../../tools/presets/ta-app-icon-default.json).
+The owner supplied a **TA Icon Studio settings JSON** and explicitly selected its parameters as the **shared monochrome family preset for now**. Exact values: Lucide `2.0` stroke; regular icon `60%` scale; tile `25%` corner rounding; offsets `0%/0%`; icon `#333333`; tile `#E6E6E6`; transparency `false`; guide `false`. Source/preset: [presets/ta-app-icon-default.json](../../../tools/261027-1116_app-icon-studio/ta-app-icon-default.json).
 
 These values are **approved current defaults**, superseding the earlier OPEN launcher palette and trial defaults of 67% scale / 24% rounding / #242424 on #EEEEEE. Each application still has its own Lucide glyph. Different app-specific icon/background colours may be explored later, but **are not selected** now.
 

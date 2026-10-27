@@ -34,13 +34,13 @@ The **repository-side** icon integration is complete for [Sourcebook](https://gi
 
 **Shared for now:** 2.0 Lucide stroke, **60%** icon scale, **25%** launcher rounding, **`#333333` icon on `#E6E6E6` background**, X/Y offset 0%, no transparency. Individual apps keep their own Lucide symbols. App-specific icon or background colours are a possible **later** refinement, not current.
 
-Use the exact [TA app icon default preset](../../tools/presets/ta-app-icon-default.json) in [TA Icon Studio](../../tools/app-icon-studio.html). The studio has these values as its default, and **TA Default** restores the shared style without changing the selected symbol. Maskable Android exports use safety-adjusted scaling and OS masking, documented in [APP_ICONS.md](APP_ICONS.md).
+Use the exact [TA app icon default preset](../../tools/261027-1116_app-icon-studio/ta-app-icon-default.json) in [TA Icon Studio](../../tools/261027-1116_app-icon-studio/app-icon-studio.html). The studio has these values as its default, and **TA Default** restores the shared style without changing the selected symbol. Maskable Android exports use safety-adjusted scaling and OS masking, documented in [APP_ICONS.md](APP_ICONS.md).
 
 Four named PWA repositories have now been updated; any further apps require an explicit target list.
 
 ## Interactive app icon design tool
 
-**[TA Icon Studio — HTML](../../tools/app-icon-studio.html)** lets you test any Lucide icon, thickness, icon scale, position, foreground/background colours and tile rounding. Includes live app/favicons previews, maskable Android-safe exports, regular SVG/PNG exports, and save/load settings JSON.
+**[TA Icon Studio — HTML](../../tools/261027-1116_app-icon-studio/app-icon-studio.html)** lets you test any Lucide icon, thickness, icon scale, position, foreground/background colours and tile rounding. Includes live app/favicons previews, maskable Android-safe exports, regular SVG/PNG exports, and save/load settings JSON.
 
 To use, open the GitHub file → **Download raw** → open the resulting HTML locally. The editor fetches official Lucide icon paths from a pinned CDN; first-time icons need an internet connection. Exports are self-contained. The Icon Studio doesn't directly edit other repositories; the four named PWAs were integrated separately on 27 October.
 
@@ -81,7 +81,7 @@ The **personal umbrella + equal Portfolio/Studio** structure and **03 / Soft Pre
 
 ## Current working board — Soft Precision v2
 
-**[View/download Soft Precision v2 HTML](../../examples/graphic-design/directions/soft-precision-v2.html)** — our new single-file, responsive, interactive design-board prototype. It supersedes the SVG sketches as the **current iteration**, not as a final identity approval.
+**[View/download Soft Precision v2 HTML](../../studies/graphic-design/directions/soft-precision-v2.html)** — our new single-file, responsive, interactive design-board prototype. It supersedes the SVG sketches as the **current iteration**, not as a final identity approval.
 
 The board demonstrates four recurring type roles, a shared spacing vocabulary, calmer nested cards and surfaces, service icons, the TA umbrella structure, report/notes/app specimens, and **light/dark + density controls**. Online it upgrades local fallback line icons to **Lucide 1.55.0**. Offline it remains usable without a build step; font is an explicit system fallback unless Geist Mono is installed.
 
@@ -91,11 +91,11 @@ For actual viewing, **download the raw HTML file and open it in a browser**; Git
 
 These are **large 1800 × 2975 SVG concept sheets**, not single homepage mockups.
 
-For a side-by-side browser review after cloning/downloading the repo, open **[directions/compare.html](../../examples/graphic-design/directions/compare.html)** locally. The GitHub web UI may display its source rather than run the HTML; the SVG links below open directly. Each includes a personal TA website, Portfolio, provisional Method Studio, a report, presentation, app/notes example, grayscale palette, type and icons.
+For a side-by-side browser review after cloning/downloading the repo, open **[directions/compare.html](../../studies/graphic-design/directions/compare.html)** locally. The GitHub web UI may display its source rather than run the HTML; the SVG links below open directly. Each includes a personal TA website, Portfolio, provisional Method Studio, a report, presentation, app/notes example, grayscale palette, type and icons.
 
-- **[01 / Editorial Framework — full board](../../examples/graphic-design/directions/01-editorial-framework-board.svg)** — spare and architectural.
-- **[02 / Modular Signal — full board](../../examples/graphic-design/directions/02-modular-signal-board.svg)** — dark and computational.
-- **[03 / Soft Precision — original vector board](../../examples/graphic-design/directions/03-mineral-field-board.svg)** — selected direction's *earlier* study; see HTML v2 above for the current typography/rhythm refinement.
+- **[01 / Editorial Framework — full board](../../studies/graphic-design/directions/01-editorial-framework-board.svg)** — spare and architectural.
+- **[02 / Modular Signal — full board](../../studies/graphic-design/directions/02-modular-signal-board.svg)** — dark and computational.
+- **[03 / Soft Precision — original vector board](../../studies/graphic-design/directions/03-mineral-field-board.svg)** — selected direction's *earlier* study; see HTML v2 above for the current typography/rhythm refinement.
 
 The earlier small SVG sketches remain as design-history references. Read [DIRECTIONS.md](identity/DIRECTIONS.md) for comparison and decision criteria. These boards show **proposals**, not approved final marks, commercial claims or published webpages.
 
