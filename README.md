@@ -7,7 +7,7 @@ TA Guides helps me remember and reuse useful approaches to design, development a
 ## Guides
 
 - [Graphic design](guides/graphic-design/README.md) — design grammar, images, icons, tokens, brand/identity thinking, historic decisions.
-- [Repositories](guides/repositories/README.md) — agent project memory, logs, documentation and handover conventions.
+- [Repositories](guides/repositories/README.md) — agent project memory, logs, documentation, handovers, [GitHub development and publishing](guides/repositories/github-development-and-publishing.md).
 
 ## Reusable material
 

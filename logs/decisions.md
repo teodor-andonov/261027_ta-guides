@@ -43,3 +43,9 @@ The owner clarified that studies are WIP explorations and should form a **simple
 - `studies/261013-0849_soft-precision-v2/` — responsive HTML study, originally created 13 Oct 2026 at 08:49 UTC.
 
 The matching App Icon Studio tool folder remains untouched. All prior project decisions and original Git history are preserved.
+
+## 2026-10-27 — GitHub development and publishing convention
+
+For website/PWA repositories, the owner chose side-branch development and approved PR **squash merges** to `main`. GitHub Actions is the only publishing mechanism: publish **automatically on pushes to `main`** and **manually through `workflow_dispatch`**, with production deployment guarded to `main`. Block accidental direct pushes through branch protection/rules where available. Develop and validate off `main`; an agent must not silently merge or publish. This reusable convention is documented in [GitHub development and publishing](../guides/repositories/github-development-and-publishing.md).
+
+This **does not** reinstate a website or publishing workflow for TA Guides itself. Existing application repositories are not altered by documenting the convention; their workflows must be migrated separately when requested.
