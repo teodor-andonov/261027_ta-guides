@@ -18,7 +18,7 @@ Merge the former Repo Guidance and Graphic Design System into an informal, expan
 - [x] Verify moved Markdown links (92 resolved; one intentionally illustrative sample screenshot link in the repository-memory guide).
 - [x] Parse design tokens and icon preset JSON; confirm the repository template is self-contained and present.
 - [ ] Run interactive browser checks for the visual boards and Icon Studio (not performed in this migration; source paths and JSON statically validated).
-- [ ] Merge migration branch and confirm `main` content.
+- [x] Merge migration branch and confirm `main` content: [PR #1](https://github.com/teodor-andonov/261027_ta-guides/pull/1), merge commit `f40edf857d24ef5dfd641f614b0b04154074898c`.
 
 ### Validation performed on 27 Oct 2026
 
