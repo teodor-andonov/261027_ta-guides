@@ -7,10 +7,13 @@ TA Guides helps me remember and reuse useful approaches to design, development a
 ## Guides
 
 - [Graphic design](guides/graphic-design/README.md) — design grammar, images, icons, tokens, brand/identity thinking, historic decisions.
-- [Repositories](guides/repositories/README.md) — agent project memory, logs, documentation, handovers, [GitHub development and publishing](guides/repositories/github-development-and-publishing.md).
+- [Repositories](guides/repositories/README.md) — agent project memory, logs, documentation, handovers, [GitHub development and publishing](guides/publishing/github-development-and-publishing.md).
+- [PWAs](guides/pwa/README.md) — TA app identity, shared icons, isolated offline storage and safe update prompts.
+- [Publishing](guides/publishing/README.md) — development/review/release policy and GitHub Actions, separate from runtime PWA behavior.
 
 ## Reusable material
 
+- [PWA update template](templates/pwa/README.md) — local update UI, worker protocol and regression tests.
 - [Repository template](templates/repository/) — copyable agent instructions, logs and tracker files.
 - [App Icon Studio](tools/261027-1116_app-icon-studio/app-icon-studio.html) — interactive Lucide icon styling and exports.
 - [TA app icon preset](tools/261027-1116_app-icon-studio/ta-app-icon-default.json) — approved current launcher default.
