@@ -2,7 +2,7 @@
 
 **Status:** family rule recovered from 21 October 2026 conversation; practical PWA packaging guidance added 27 October 2026.  
 **Scope:** independent TA apps, Windows/Android-installed PWAs, favicon/browser tabs, launchers and app listings.  
-**Distinct from:** [ICONOGRAPHY.md](ICONOGRAPHY.md), which covers icons **inside** interfaces, presentations and diagrams.
+**Related:** [ICONOGRAPHY.md](ICONOGRAPHY.md) covers ordinary action/interface icons. An in-app **product identity mark** must use the same canonical geometry as its installed PWA icon. Packaging, caching and update requirements live in the separate [TA PWA guide](../pwa/README.md).
 
 ## Interactive design tool — TA Icon Studio
 
@@ -37,22 +37,19 @@ The editor loads authentic Lucide geometry from a **pinned `lucide-static@1.61.0
 
 **Icon Studio behaviour:** the HTML tool now opens with these values as a new local default (`v2` preference namespace), and its **TA Default** action reapplies this shared style while keeping the selected Lucide symbol. Older experiments can still be re-imported from their JSON. Exported PNG/SVG files still require separate deployment and manifest updates in the target PWA repos.
 
-## Applied to four existing GitHub-hosted PWAs — 27 October 2026
+## Current five-app registry — 29 October 2026
 
-**Committed and checked on `main`:** the following app repositories now contain their own Lucide vector/source, 192/512 PNG and maskable PNG sets, updated HTML/favicon links, updated web app manifest icon entries, and a new service-worker cache version. A per-repo GitHub Actions workflow generates PNGs reproducibly from the pinned 1.61.0 Lucide SVG source.
-
-| PWA | Repository | Lucide icon |
+| App | Repository | Canonical Lucide 1.61.0 glyph |
 | --- | --- | --- |
-| Sourcebook | [261025-2132_sourcebook](https://github.com/teodor-andonov/261025-2132_sourcebook) | `library-big` |
-| Mindmap | [261019-1740_pwa-mindmap](https://github.com/teodor-andonov/261019-1740_pwa-mindmap) | `network` |
-| SVG Viewer | [ta-svg-viewer-261012](https://github.com/teodor-andonov/ta-svg-viewer-261012) | `scan-eye` |
-| CAD Graph | [ta-cad-graph-261012](https://github.com/teodor-andonov/ta-cad-graph-261012) | `workflow` |
+| TaGraphicpad | [261028_gaphic-pad](https://github.com/teodor-andonov/261028_gaphic-pad) | `pen-tool` |
+| TaSourcebook | [261025-2132_sourcebook](https://github.com/teodor-andonov/261025-2132_sourcebook) | `library-big` |
+| TaMindmap | [261019-1740_pwa-mindmap](https://github.com/teodor-andonov/261019-1740_pwa-mindmap) | `network` |
+| TaViewsvg | [ta-svg-viewer-261012](https://github.com/teodor-andonov/ta-svg-viewer-261012) | `scan-eye` |
+| TaCodegraph | [ta-cad-graph-261012](https://github.com/teodor-andonov/ta-cad-graph-261012) | `workflow` |
 
-**Implementation verification:** all twenty icon paths referenced by the four manifests exist in the correct repo folders; four manifests parse; four service workers parse and cache their icon paths. Existing app-specific manifest features, including SVG Viewer's file handlers and share target, remain intact.
+The four pre-existing symbols and their 27 October launcher assets already follow the approved preset. Graphicpad now joins the family with `pen-tool`, selected for its vector drawing purpose. App identity marks inside the UI, launchers and favicons use the same per-app artwork; ordinary action icons remain functional controls. Each authoritative source checkout retains its canonical geometry and export method. Graphicpad and Sourcebook use their local-source release policies rather than hosted icon automation; source-hosted apps retain their existing asset workflows.
 
-**Publication status:** repository commits are verified; **live GitHub Pages publication and OS-level installed-icon refresh have not been established by this verification**. Sourcebook's Pages workflow deliberately publishes nightly or manually rather than on each development push. The other apps have push-to-main GitHub Pages workflows. On Windows/Android existing installed icons can still be OS-cached and may require time or reinstalling to refresh.
-
-**Current colours:** uniform grayscale `#333333` on `#E6E6E6`; app-specific colours remain a future option, not applied in this rollout.
+**Historical rollout:** on 27 October four repositories received their source SVG, regular/maskable PNGs, manifests and generation workflows. Live publication and OS icon refresh were not confirmed by that earlier audit. Release policies have since evolved; consult each repository, rather than inferring its current policy from that dated rollout.
 
 ## 1. Decision and provenance
 
@@ -104,84 +101,15 @@ For implementation, **retain** these platform guidelines alongside the approved 
 
 **Do not confuse the Lucide library icon named \`app-window\` used to illustrate the general _Apps_ navigation section with the distinctive Sourcebook/Notebook/Objectbook launcher symbols above.**
 
-## 3. Standard PWA deliverables (implementation recommendation)
+## 3. PWA packaging and runtime behavior
 
-For **each app** with a manifest, generate local assets from the selected Lucide source:
+The [TA PWA standard](../pwa/ta-pwa-standard.md) is now the canonical home for asset deliverables, manifest identity/scope, same-origin cache isolation, offline checks and update prompts. Do not maintain a second technical checklist here.
 
-| Asset | Recommendation | Purpose |
-| --- | --- | --- |
-| \`icons/app-icon.svg\` | Canonical complete scalable icon artwork, with explicit stroke and background choices | Source / supported browsers |
-| \`icons/icon-192.png\` | 192×192 | Installed PWA regular icon |
-| \`icons/icon-512.png\` | 512×512 | Higher-resolution regular icon |
-| \`icons/icon-maskable-192.png\` | 192×192, opaque background + safe glyph | Adaptive/masked launcher |
-| \`icons/icon-maskable-512.png\` | 512×512, opaque background + safe glyph | Adaptive/masked launcher |
-| \`favicon.svg\` | Small optimized symbolic artwork | Browser tab / bookmark |
-| \`apple-touch-icon.png\` | 180×180, when Apple installs are in scope | iOS/iPadOS home screen |
+## 4. Publishing and rollout
 
-File names are **suggestions**, not already present in app repositories. The site may also provide \`favicon.ico\` if legacy/favicon compatibility warrants it. Publish icon files as local assets with the application; no runtime CDN request should be required for an installed launcher icon.
+The separate [publishing guide](../publishing/README.md) covers branches, review, authorization, Actions and live deployment evidence. Each named app records its actual icon paths and generator in `TA_APP_ICON.md` and its runtime integration in `PWA.md`.
 
-**Illustrative manifest fragment — not a complete manifest:**
-
-~~~json
-{
-  "icons": [
-    {
-      "src": "icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/icon-maskable-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "icons/icon-maskable-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
-  ]
-}
-~~~
-
-The complete manifest also needs its **own** \`name\`, \`short_name\`, \`id\` (where supported), \`start_url\`, \`scope\`, \`display\` and appropriate colours. Do **not** blindly replace an app's existing manifest, scope, service worker/cache strategy or file handlers merely to update its icons.
-
-The regular and maskable icon resources should be separate because their padding requirements differ. The maskable icon's central 80%-diameter safe zone is defined by the [Web App Manifest specification](https://www.w3.org/TR/appmanifest/) and explained by [MDN's PWA app-icon guide](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/How_to/Define_app_icons). Desktop/browser favicon and PWA installation artwork are separate consumers and may have different ideal crops.
-
-## 4. Rollout procedure for existing Github-hosted PWAs
-
-**The four named PWAs listed above were updated on 27 October 2026.** For **any additional** app repositories, continue using this per-repo inspection and rollout process only after the owner names them.
-
-For each named app:
-
-1. Inspect actual repo, deployed path/domain, existing \`manifest.webmanifest\` or equivalent, favicon links, service worker/cache implementation and existing icon assets. Do not assume all apps use the same hosting provider, public root or base path.
-2. Find or confirm that app's **distinct Lucide icon assignment**. For Sourcebook, Notebook, Objectbook use the selected symbols above. For others, propose a short, meaningful candidate list and record the adopted mapping before touching its branding.
-3. Use the **canonical Lucide paths** from a pinned compatible version. Generate the source SVG, separate regular and maskable variants, favicon and raster sizes locally.
-4. Check favicon clarity, OS mask previews (especially Android), Windows taskbar/launcher, light and dark wallpaper backgrounds, and common 16/32px contexts.
-5. Update the app's existing manifest icon entries and HTML link tags while **preserving** unrelated settings and PWA behaviour, including relative GitHub Pages \`start_url\`/\`scope\` where applicable.
-6. If icon files are precached, revise the service-worker asset list and cache version. Test whether **already installed PWAs** actually refresh the icon; browsers/OSs may cache icons independently, and reinstallation may sometimes be necessary.
-7. Keep the files, chosen icon name, Lucide version, stroke, sizes, colours and test results documented in that app's repo. Update this central registry as the family grows.
-8. Deploy only the named repos, verify live icon URLs and manifest fetch paths, and avoid unrelated UI/refactor changes.
-
-### Acceptance checks
-
-- The installed PWA is recognisable as the correct app **without reading the name**.
-- The three related apps are recognisably one icon family **and** individually distinguishable.
-- No icon strokes are clipped by Android masking or by rounded launcher surfaces.
-- Both \`any\` and \`maskable\` icons are present if the deployment targets Android.
-- Browser favicon, app shortcut/launcher and manifest assets agree.
-- No broken URLs due to repository-specific hosting path, scope or caching.
-- The icons do **not** require a network icon CDN at launch.
-- Icons meet the icon-license notice requirements of the version used.
+Visual acceptance remains here: recognizable and distinct glyphs, one monochrome family, canonical geometry across in-app and installed identity, clean small-size rendering and no clipping under OS masks. Test actual Windows/Android icon refresh separately before claiming device acceptance.
 
 ## 5. Licences and source authority
 
@@ -189,4 +117,4 @@ The [Lucide library](https://lucide.dev/) uses an ISC license, and some icons de
 
 Source of truth for the *family decision*: 21 October 2026 conversation, not a claim of a complete technical rollout at that date. Source of truth for PWA packaging: implementation recommendations informed by browser/platform manifest standards.
 
-**Status boundary:** shared Lucide app icon symbols and the uploaded **monochrome preset are approved**; four named PWA repositories updated on 27 October, with local regular and maskable assets and manifest/service-worker integration verified. Live Pages deployment and installed OS icon refresh still need observation. Optional per-app colours remain **open**.
+**Status boundary:** shared Lucide symbols and the monochrome preset are approved current defaults. The current five-app registry records this implementation; publication and browser checks belong in the dated session log. Actual installed OS icon refresh remains device-specific. Optional per-app colors remain open.

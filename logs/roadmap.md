@@ -48,3 +48,13 @@ Merge the former Repo Guidance and Graphic Design System into an informal, expan
 - [x] Flatten `studies/` into dated study folders without category nesting.
 - [x] Preserve all original SVG/HTML study assets and move relative references.
 - [x] Keep the App Icon Studio timestamped tool folder unchanged.
+
+## 29 October 2026 — Shared PWA/runtime and publishing separation
+
+- [x] Add dedicated PWA identity, icon integration, offline isolation and update UX guidance.
+- [x] Move publishing into its own guide area, retain the old link as a pointer, and connect repository/visual/PWA guides.
+- [x] Add reusable local update templates and app-aware activation tests.
+- [x] Apply the icon family and update UX to the five owner-selected apps; preserve their release policy.
+- [x] Validate all 20 PNG dimensions, all five offline launches, installability and two-version update behavior locally.
+- [x] Record final live release verification in the session log, reconcile existing local source repos, and set up missing local checkouts.
+- Actual Windows/Android installed-icon refresh remains a separate device check; no physical device acceptance is claimed.

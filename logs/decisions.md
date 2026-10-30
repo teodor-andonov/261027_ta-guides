@@ -49,3 +49,12 @@ The matching App Icon Studio tool folder remains untouched. All prior project de
 For website/PWA repositories, the owner chose side-branch development and approved PR **squash merges** to `main`. GitHub Actions is the only publishing mechanism: publish **automatically on pushes to `main`** and **manually through `workflow_dispatch`**, with production deployment guarded to `main`. Block accidental direct pushes through branch protection/rules where available. Develop and validate off `main`; an agent must not silently merge or publish. This reusable convention is documented in [GitHub development and publishing](../guides/repositories/github-development-and-publishing.md).
 
 This **does not** reinstate a website or publishing workflow for TA Guides itself. Existing application repositories are not altered by documenting the convention; their workflows must be migrated separately when requested.
+
+## 29 October 2026 — PWA contracts, icon consistency and safe browser updates
+
+The owner asked to apply the TA icon standard to the five named apps, use the same app symbol inside and outside the app, make updates visible, document protection against prior PWA problems, separate PWA/publishing guidance and publish the apps after validation.
+
+- Graphicpad uses canonical Lucide 1.61.0 `pen-tool` in the approved grayscale preset. The four existing glyphs and launcher artwork are retained; in-app identity marks now use the same artwork.
+- Browser updates are user-controlled: a waiting worker offers Update now / Later. Activation requires app-specific readiness in all same-scope windows; unsaved edits, active operations, unknown legacy clients and timeouts block. No unconditional install-time takeover or automatic reload on focus.
+- PWA/runtime standards live under guides/pwa; release policy lives under guides/publishing; visual identity remains in APP_ICONS. Per-app IDs, asset locations and state guards stay in the app repositories. Templates are local copies, not a shared hosted dependency.
+- The existing manual/automatic release policies remain intact. This session's explicit request to publish authorizes the tested PR merges and releases; documenting the convention does not authorize future releases automatically.

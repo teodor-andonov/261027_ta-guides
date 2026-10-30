@@ -1,6 +1,6 @@
 # TA Guides — current status
 
-Updated 2026-10-27
+Updated 2026-10-29
 
 ## Current
 
@@ -47,3 +47,11 @@ The studies now live in two direct, dated folders: `studies/261012-2105_visual-i
 ## 2026-10-27 — New repository workflow guide
 
 Added [GitHub development and publishing](../guides/repositories/github-development-and-publishing.md) as a reusable convention for website/PWA repositories: side-branch development → reviewed squash merge to `main` → GitHub Actions publishes, with optional manual dispatch. TA Guides remains files-only and has no publication workflow. Existing application workflows are unchanged by this guide.
+
+## 29 October 2026 — TA PWA standards and update templates
+
+Separated [PWA runtime guidance](../guides/pwa/README.md) from [publishing](../guides/publishing/README.md) and [visual icon identity](../guides/graphic-design/APP_ICONS.md). The old repository publishing URL remains a pointer. Added local copyable update client/worker templates and activation-consent regression tests.
+
+The owner authorized changes and publication for TaGraphicpad, TaSourcebook, TaMindmap, TaViewsvg and TaCodegraph only. Their app-specific integration lives in each repo's PWA.md and TA_APP_ICON.md. See the dated [session](sessions/261029-2355_pwa-icons-and-update-standard.md) for validation and release evidence. TA Guides remains files-only; no website was introduced.
+
+Final rollout: all five apps published and live verified; existing Sourcebook/Graphicpad local-source policies retained. Missing Mindmap/Viewsvg/Codegraph/TA Guides checkouts set up under T/Repos. Source map, release revisions and test limits are recorded in the session log.
