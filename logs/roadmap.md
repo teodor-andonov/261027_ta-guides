@@ -56,5 +56,5 @@ Merge the former Repo Guidance and Graphic Design System into an informal, expan
 - [x] Add reusable local update templates and app-aware activation tests.
 - [x] Apply the icon family and update UX to the five owner-selected apps; preserve their release policy.
 - [x] Validate all 20 PNG dimensions, all five offline launches, installability and two-version update behavior locally.
-- [ ] Record final live release verification in the session log.
+- [x] Record final live release verification in the session log, reconcile existing local source repos, and set up missing local checkouts.
 - Actual Windows/Android installed-icon refresh remains a separate device check; no physical device acceptance is claimed.

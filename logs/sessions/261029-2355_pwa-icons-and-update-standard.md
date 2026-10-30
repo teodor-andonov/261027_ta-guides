@@ -33,3 +33,25 @@ Final live verification is recorded below after publication.
 ## Upgrade note
 
 This is the first introduction of the update UI: older open windows cannot show code they have not loaded. Save work, close all windows for each app, then reopen online once. Future releases can use Update now / Later. Browser/OS icon caches may still need time or reinstall; never clear shared-origin site data merely to refresh one shortcut. No actual Windows/Android installed-icon refresh is claimed.
+
+## Local-source clarification and checkout setup — 30 October
+
+The owner identified Sourcebook’s existing authoritative local checkout and requested local repos for missing apps. Inventory also identified Graphicpad’s existing local source checkout. Their source models and release policies supersede this session’s earlier clean-public-clone approach. Reconciled the scoped PWA changes into each local main-local source, preserving Sourcebook V0.0.66 media/theme/menu features and Graphicpad’s portable HTML/build path. Runtime-only releases retain the earlier public ancestry; local source branches and logs are not uploaded.
+
+Sourcebook local gate: 480 Node tests, all syntax checks and 21 Chromium scenarios pass. Graphicpad local gate: 98 tests, TypeScript/Vite build and generated PWA checks pass; no local-source browser interaction was requested, so none was performed. Prior cross-app distribution-browser evidence remains separate. The manual-update-check race was separately exercised with a deliberately held update request: the click displays Checking and then the result.
+
+Created full local checkouts for Mindmap, Viewsvg, Codegraph and TA Guides under T/Repos, reusing the existing Sourcebook and Graphicpad checkouts. New clones track existing remotes, disable implicit pushes and retain existing publication policies. Source location and release ownership are now explicit in the guides.
+
+## Final publication verification — 30 October 2026
+
+| App | Final public runtime/source commit | Successful release Action |
+| --- | --- | --- |
+| TaGraphicpad | e5a7c0fcb803 (local-source runtime snapshot) | 40978410630 |
+| TaSourcebook | d0b5ef26e17b (local V0.0.66 runtime snapshot) | 40978052039 |
+| TaMindmap | f1c8587478c6 | 40978053205 |
+| TaViewsvg | b4e872933916 | 40978055591 |
+| TaCodegraph | 7fc0049aa2e2 | 40978058169 |
+
+All five live pages have the exact concise name, separate stable identity, a real main-head manifest, the final matching updater client and working SVG/PNG icon URLs with true 192/512 dimensions. Sourcebook’s live app module matches authoritative local V0.0.66 source, and its installed-client update/then offline reload was exercised in a separate browser profile with zero installability errors. Final Graphicpad source was checked by its automated build/PWA verifier and live HTTP asset checks, without opting into local editor browser use. Earlier four-app distribution installability/offline and two-version browser tests are recorded above.
+
+Local source and runtime snapshots are now in sync for Sourcebook and Graphicpad. The three new application clones are clean on main and track the existing remotes; TA Guides’ new local checkout is synchronized after this documentation merge. No other application repositories were changed.

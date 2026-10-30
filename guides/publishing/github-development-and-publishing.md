@@ -2,6 +2,14 @@
 
 **Default for actively developed websites and PWAs.** Keep development separate from production, and use GitHub Actions as the sole publisher. Project-specific requirements can be stricter; a files-only repo such as TA Guides does **not** need Pages or a publish workflow.
 
+## Existing local source comes first
+
+Locate the authoritative checkout before changing a deployed app. Saved projects and Git remotes can identify a differently named local folder. Read its AGENTS.md, status and release instructions; do not assume a public repository contains the latest source.
+
+Some TA apps deliberately use local main-local integration and independent runtime-only main snapshots. For those, develop/test locally and publish only the allowed runtime files through the project’s preparation tool. Keep source branches, local history, logs and portable builds local. Never merge public runtime history into local source or force-push to reconcile it. If remote main advanced independently, inspect and retain that ancestry as an explicitly imported publication baseline before creating a runtime-only child snapshot. Do not weaken the guard for new commits or silently change release policy.
+
+The branch/PR convention below applies to source-hosted projects. It does not override local runtime-only policies. See [source locations](../pwa/README.md#local-source-locations).
+
 ## Core convention
 
 - **Side branches are for development.** Work on `feature/<scope>`, `fix/<scope>`, or a coherent milestone branch (e.g. `feature/v2-studio`). Agents, scheduled tasks and local coding sessions commit here, **not to `main`**. A long-running milestone may use a single rolling branch; a permanent `dev` branch is optional, not required.

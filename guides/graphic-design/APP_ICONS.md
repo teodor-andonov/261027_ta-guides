@@ -47,7 +47,7 @@ The editor loads authentic Lucide geometry from a **pinned `lucide-static@1.61.0
 | TaViewsvg | [ta-svg-viewer-261012](https://github.com/teodor-andonov/ta-svg-viewer-261012) | `scan-eye` |
 | TaCodegraph | [ta-cad-graph-261012](https://github.com/teodor-andonov/ta-cad-graph-261012) | `workflow` |
 
-The four pre-existing symbols and their 27 October launcher assets already follow the approved preset. Graphicpad now joins the family with `pen-tool`, selected for its vector drawing purpose. App identity marks inside the UI, launchers and favicons use the same per-app artwork; ordinary action icons remain functional controls. Each repository retains its canonical source and repeatable asset generator.
+The four pre-existing symbols and their 27 October launcher assets already follow the approved preset. Graphicpad now joins the family with `pen-tool`, selected for its vector drawing purpose. App identity marks inside the UI, launchers and favicons use the same per-app artwork; ordinary action icons remain functional controls. Each authoritative source checkout retains its canonical geometry and export method. Graphicpad and Sourcebook use their local-source release policies rather than hosted icon automation; source-hosted apps retain their existing asset workflows.
 
 **Historical rollout:** on 27 October four repositories received their source SVG, regular/maskable PNGs, manifests and generation workflows. Live publication and OS icon refresh were not confirmed by that earlier audit. Release policies have since evolved; consult each repository, rather than inferring its current policy from that dated rollout.
 
